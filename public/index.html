@@ -20,16 +20,16 @@
                     <h1>Login</h1>
                 
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Email" name="email" required>
+                    <input type="text" placeholder="Email" name="email" >
                 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Password" name="psw" required>
+                    <input type="password" placeholder="Password" name="psw" >
                 
                     <button type="submit" class="btn">Login</button>
                     <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
 
                     <label>Don't have an account?</label>
-                    <button>Sign Up</button>
+                    <button><a href="Authentication/signin.html">Sign Up</a></button>
                 </form>
             </div>
             <div class="title"><h2 id="title">You Are...</h2></div>
@@ -57,6 +57,10 @@
 
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
 
       
     </body>
