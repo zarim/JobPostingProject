@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<htmL>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="signup.css">
+    </head>
+
+    <body>
+        <form>
+            <div class="container">
+                <h1 class="signup" id="text">Employer Signup</h1>
+                <label class="user-name" id="text">Name</label>
+                <input type="text" placeholder="Enter name" name="name" id="name" required>
+                <label class="email" id="text">Company Email</label>
+                <input type="text" placeholder="Enter email" name="email" id="email" required>
+                <label class="user-name" id="text">Company Name</label>
+                <input type="text" placeholder="Enter company name" name="company" id="company" required>
+                <label class="user-name" id="text">Foreign Key</label>
+                <input type="text" placeholder="Enter foreign key" name="foreign" id="foreign" required>
+                <label class="password" id="text">Password</label>
+                <input type="password" placeholder="Enter password" name="password" id="password" required>
+                <label class="password" id="text">Re-Enter Password</label>
+                <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password"  required>
+                <div class="enter">
+                    <button type="button" class="cancelButton">Cancel</button>
+                    <input type="button" class="signupButton" value="Sign Up" onclick="userSignUp(document.getElementById('email').value, document.getElementById('password').value, document.getElementById('reenter-password').value);">
+                </div>
+                <div class="login-route">
+                    <h3 id="login">Have an account?</h3>
+                    <span tabindex="-1" class="login"><input type="button" class="login" id="text" onclick="location.href='../signup-login/login.html';" value="Login"/></span>
+                </div>
+                <div class="other">
+                    <span tabindex="-1" class="other"><input type="button" class="other" id="text" onclick="location.href='../../candidate/signup-login/signup.html';" value="Signup as Candidate"/></span>
+                </div>
+            </div>
+        </form>
+
+    </body>
+</htmL>

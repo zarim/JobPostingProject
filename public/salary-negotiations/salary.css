@@ -1,3 +1,27 @@
+html {
+    background-color: darkslategray;
+}
+
+.header {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #00C9C9;
+    font-family: 'Lato', sans-serif;
+    font-size: 50px;
+}
+  
+#Header{
+    font-weight: bold;
+    color: #43464B;
+    width: fit-content;
+    margin: auto;
+}
+
+.HeaderDiv{
+    margin: 3% auto;
+}
+
 #menu-item {
     margin: auto;
     font-family: 'Lato', sans-serif;
