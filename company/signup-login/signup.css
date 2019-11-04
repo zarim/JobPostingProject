@@ -37,9 +37,6 @@ form {
     border: none;
 }
 
-body {
-}
-
 .container {
     display: flex;
     flex-direction: column;
