@@ -1,0 +1,218 @@
+@media screen and (max-width: 599px) {
+    .enter {
+        flex-direction: column;
+    }
+
+    .cancelButton {
+        width: 50%;
+    }
+
+    .loginButton {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 959px) {
+    
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+
+}
+
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+
+}
+
+html {
+    overflow: hidden;
+    background-color: darkslategray;
+}
+
+form {
+    border: none;
+}
+
+body {
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: white;
+}
+
+.signup {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: #00C9C9;
+    text-align: center;
+    margin: 5%;
+}
+
+.user-name {
+    text-align: center;
+    margin: 5%;
+}
+
+.email {
+    text-align: center;
+    margin: 5%;
+}
+
+.password {
+    text-align: center;
+    margin: 5%;
+}
+
+.enter {
+    display: flex;
+    flex-direction: row;
+    margin: 5% auto;
+}
+
+.login:hover {
+    cursor: pointer;
+}
+
+.login:focus {
+    cursor: pointer;
+}
+
+
+.cancelButton {
+    background-color: darkslategray;
+    color: #00C9C9;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    margin: 3%;
+    width: 125px;
+    float: left;
+    border-radius: 5px;
+    box-shadow: #43464B;
+    height: 35px;
+    margin: 5%;
+}
+
+.cancelButton:focus{
+    outline: none;
+    cursor: pointer;
+}
+
+.cancelButton:hover{
+    cursor: pointer;
+    cursor: pointer;
+}
+
+.signupButton {
+    background-color: darkslategray;
+    color: #00C9C9;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    margin: 3%;
+    width: 125px;
+    float: left;
+    border-radius: 5px;
+    box-shadow: #43464B;
+    height: 35px;
+    margin: 5%;
+}
+
+.signupButton:focus{
+    outline: none;
+    cursor: pointer;
+}
+
+.signupButton:hover{
+    cursor: pointer;
+}
+
+.other {
+    text-decoration: none;
+    border: none;
+    font-size: 15px;
+    margin: 2% auto;
+    display: flex;
+    flex-direction: column;
+    float: bottom;
+}
+
+.input {
+    display: inline;
+    flex-direction: row;
+    text-align: center;
+}
+
+#name {
+    width: 90%;
+    margin: auto;
+}
+
+#email {
+    width: 90%;
+    margin: auto;
+}
+
+#password {
+    width: 90%;
+    margin: auto;
+}
+
+#reenter-password {
+    width: 90%;
+    margin: auto;
+}
+
+.login {
+    text-decoration: none;
+    border: none;
+    width: 50%;
+    font-size: 15px;
+    margin: auto;
+}
+
+.login-route {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 5% auto;
+}
+
+#login {
+    width: 70%;
+    margin: auto;
+    font-size: 15px;
+    text-align: center;
+}
+
+#email {
+    width: 90%;
+    margin: auto;
+}
+
+#password {
+    width: 90%;
+    margin: auto;
+}
+
+#foreign {
+    width: 90%;
+    margin: auto;
+}
+
+#company {
+    width: 90%;
+    margin: auto;
+}
+
+#text {
+    font-family: 'Lato', sans-serif;
+    color: darkslategray;
+}
