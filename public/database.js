@@ -16,6 +16,34 @@ firebase.initializeApp({
 
 
 
+db.collection("CompanyProfile").doc("4001").set({
+    Benefits: " ",
+    Bias_Training: false,
+
+    Company_Name: " Google",
+    Fun_Facts: " We like to laugh"
+})
+.then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});
+
+
+/*// Add a new document in collection "cities"
+db.collection("cities").doc("LA").set({
+    name: "Los Angeles",
+    state: "CA",
+    country: "USA"
+})
+.then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});*/
+
 
 db.collection("Test Collection").add({
     first: "Test 1",
@@ -42,6 +70,8 @@ db.collection("users").add({
 .catch(function(error) {
     console.error("Error adding document: ", error);
 });*/
+
+
 
 /*db.collection("users").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {

@@ -31,6 +31,11 @@ body {
     margin: 5%;
 }
 
+.companyID {
+    text-align: center;
+    margin: 5%;
+}
+
 .enter {
     display: flex;
     flex-direction: row;
@@ -153,6 +158,10 @@ body {
     margin: auto;
 }
 
+#companyID {
+    width: 90%;
+    margin: auto;
+}
 #text {
     font-family: 'Lato', sans-serif;
     color: darkslategray;

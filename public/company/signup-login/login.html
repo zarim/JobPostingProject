@@ -5,18 +5,26 @@
         <link rel="stylesheet" type="text/css" href="login.css">
     </head>
 
+    <script type="text/javascript" src="../../Authentication/authentication.js"></script>
+    <script type="text/javascript" src="../../database.js"></script>
+
     <body>
         <div class="main-container">
             <form>
                 <div class="container">
-                    <h1 class="login" id="text">Login</h1>
+                    <h1 class="login" id="text">Company Login</h1>
                     <label class="email" id="text">Email</label>
                     <input type="text" placeholder="Enter email" name="email" id="email" required>
                     <label class="password" id="text">Password</label>
                     <input type="password" placeholder="Enter password" name="password" id="password" required>
+                    <label class="companyID" id="text">Company ID</label>
+                    <input type="text" placeholder="Enter Company ID" name="companyID" id="companyID" required>
+
                     <div class="enter">
                         <button type="button" class="cancelButton">Cancel</button>
-                        <input type="button" class="loginButton" value="Login" onclick="">
+                        <input type="button" class="loginButton" id="quickstart-sign-in" value="Login" onclick="companyIDCheck();">
+                        
+                        
                     </div>
                     <div class="signup-route">
                         <h3 id="signup">Don't have an account?</h3>
@@ -26,4 +34,23 @@
             </form>
         </div>
     </body>
+    <script type="text/javascript">
+        function companyIDCheck(companyID){
+            
+            var docRef = db.collection(CompanyProfile).doc(companyID);
+            docRef.get().then(function(doc) {
+                if (doc.exists) {
+                    toggleSignIn()
+                    alert('Password Reset Email Sent!');
+                    console.log("Document data:", doc.data());
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        }
+        
+        </script>
 </htmL>
