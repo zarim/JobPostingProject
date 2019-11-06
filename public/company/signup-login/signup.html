@@ -55,10 +55,7 @@
         }
         // Sign in with email and pass.
         // [START createwithemail]
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-
-          //redirect to login page
-
+        firebase.auth().createUserWithEmailAndPassword(email, password).sendEmailVerification().alert("Verification Email Sent").catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -72,6 +69,37 @@
           // [END_EXCLUDE]
         });
         // [END createwithemail]
-      }     
+
+          //sendEmailVerification();
+          firebase.auth().currentUser.sendEmailVerification().then(function() {
+          // Email Verification sent!
+          // [START_EXCLUDE]
+          alert('Email Verification Sent!');
+      
+          //============================================================
+          //figure out how to send the company a number as their ID
+          //============================================================
+
+
+          //============================================================
+          //redirect to login page
+          //<meta http-equiv="Refresh" content="0; a href= />
+          //============================================================
+
+          // [END_EXCLUDE]
+        });
+        
+
+    }
+      /*function sendEmailVerification() {
+        // [START sendemailverification]
+        firebase.auth().currentUser.sendEmailVerification().then(function() {
+          // Email Verification sent!
+          // [START_EXCLUDE]
+          alert('Email Verification Sent!');
+          // [END_EXCLUDE]
+        
+        // [END sendemailverification]*/
+
         </script>
 </htmL>

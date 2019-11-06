@@ -42,6 +42,7 @@
     </body>
 
     <script type="text/javascript">
+
         function handleSignUp() {
 
         //save the name in the database maybe
@@ -58,11 +59,8 @@
         }
         // Sign in with email and pass.
         // [START createwithemail]
-        firebase.auth().createUserWithEmailAndPassword(email, password).sendEmailVerification().catch(function(error) {
-
-          //redirect to login page
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
           
-
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -74,13 +72,28 @@
           }
           console.log(error);
           // [END_EXCLUDE]
-
-
         });
         // [END createwithemail]
+
+        //sendEmailVerification();
+        firebase.auth().currentUser.sendEmailVerification().then(function() {
+          // Email Verification sent!
+          // [START_EXCLUDE]
+          alert('Email Verification Sent!');
+
+          location.href='login.html'
+
+
+          //============================================================
+          //redirect to profile page
+          //<meta http-equiv="Refresh" content="0; a href= />
+          //============================================================
+
+          // [END_EXCLUDE]
+        });
       }
 
-      function sendEmailVerification() {
+      /*function sendEmailVerification() {
         // [START sendemailverification]
         firebase.auth().currentUser.sendEmailVerification().then(function() {
           // Email Verification sent!
@@ -89,6 +102,6 @@
           // [END_EXCLUDE]
         });
         // [END sendemailverification]
-      }
+      }*/
         </script>
 </htmL>
