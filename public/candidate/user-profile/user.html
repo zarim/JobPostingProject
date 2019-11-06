@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="user.css">
+    </head>
+
+    <body>
+        <div class="page">
+            <div class="menu">
+                <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+            </div>
+            <div class="user-header">
+                <h2 id="user-header">User Profile</h2>
+            </div>
+            <div class="content">
+                <div class="left-container">
+                    <div class="top">
+                        <div class="top-left">
+                            <div class="circle-cropper"></div>
+                        </div>
+                        <div class="top-right">
+                            <label class="user-name" id="text">Name</label>
+                            <input type="text" placeholder="Enter name" name="name" id="top-input" required>
+                            <label class="email" id="text">Email</label>
+                            <input type="text" placeholder="Enter email" name="email" id="top-input" required>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <label class="user-name" id="bottom-text">Phone Number</label>
+                        <input type="text" placeholder="Enter name" name="name" id="bottom-input" required>
+                        <label class="email" id="bottom-text">Location</label>
+                        <input type="text" placeholder="Enter email" name="email" id="bottom-input" required>
+                        <label class="user-name" id="bottom-text">Education</label>
+                        <input type="text" placeholder="Enter name" name="name" id="bottom-input" required>
+                        <label class="email" id="bottom-text">Website/Github</label>
+                        <input type="text" placeholder="Enter email" name="email" id="bottom-input" required>
+                    </div>
+                </div>
+                <div class="right-container">
+                    <label class="user-name" id="right-text">Phone Number</label>
+                    <input type="text" placeholder="Enter name" name="name" id="right-input" required>
+                    <label class="user-name" id="right-text">Phone Number</label>
+                    <input type="text" placeholder="Enter name" name="name" id="right-input" required>
+                    <label class="user-name" id="right-text">LinkedIn</label>
+                    <input type="text" placeholder="Enter LinkedIn link" name="name" id="linkedin-input" required>
+                    <label class="user-name" id="right-text">Upload Resume</label>
+                    <input type="button" value="Upload File" name="name" id="resume-input" class="resume-input" required>
+                    <div class="job-search">
+                        <input type="checkbox" placeholder="searching" name="searching" id="job-input" required>
+                        <p1 id="looking-for-job">Currently looking for a job</p1>
+                    </div>
+                    <div class="enter">
+                        <button type="button" class="cancelButton">Quit</button>
+                        <input type="button" class="signupButton" value="Save" onclick="userSignUp(document.getElementById('email').value, document.getElementById('password').value, document.getElementById('reenter-password').value);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
