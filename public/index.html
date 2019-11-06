@@ -3,6 +3,8 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>    
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
     </head>
     <body>
         <div class="HeaderDiv">
@@ -60,25 +62,6 @@
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
 
-
-
-
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-
-<script>
-        const firebase = require("firebase");
-        // Required for side-effects
-        require("firebase/firestore");
-        
-        // Initialize Cloud Firestore through Firebase
-        firebase.initializeApp({
-            apiKey: 'AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g',
-            authDomain: 'glassceilingswe.firebaseapp.com',
-            projectId: 'glassceilingswe'
-          });
-          
-          var db = firebase.firestore();</script>
-
+    
     </body>
 </html>

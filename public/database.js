@@ -1,6 +1,41 @@
+import { initializeApp } from "firebase";
+
+
+var firebaseConfig = {
+    apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+    authDomain: "glassceilingswe.firebaseapp.com",
+    databaseURL: "https://glassceilingswe.firebaseio.com",
+    projectId: "glassceilingswe",
+    storageBucket: "glassceilingswe.appspot.com",
+    messagingSenderId: "318857051230",
+    appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+    measurementId: "G-LEHC8NNE1X"
+  };
+
+  firebase.initializeApp(firebaseConfig);
 
 
 
+/*<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>*/
+
+/*const firebase = require("firebase");
+        // Required for side-effects
+        require("firebase/firestore");*/
+
+
+
+
+
+
+// Initialize Cloud Firestore through Firebase
+/*firebase.initializeApp({
+    apiKey: 'AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g',
+    authDomain: 'glassceilingswe.firebaseapp.com',
+    projectId: 'glassceilingswe'
+  });
+  
+  var db = firebase.firestore();
 
 // database functions
 
@@ -20,7 +55,7 @@ db.collection("CompanyProfile").doc("4001").set({
 });
 
 
-/*// Add a new document in collection "cities"
+// Add a new document in collection "cities"
 db.collection("cities").doc("LA").set({
     name: "Los Angeles",
     state: "CA",
@@ -31,7 +66,7 @@ db.collection("cities").doc("LA").set({
 })
 .catch(function(error) {
     console.error("Error writing document: ", error);
-});*/
+});
 
 
 db.collection("Test Collection").add({
