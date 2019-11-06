@@ -14,7 +14,7 @@ html {
 }
 
 #menu-item a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #00C9C9;
 }
 

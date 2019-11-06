@@ -1,0 +1,23 @@
+{
+  "name": "jobpostingproject",
+  "version": "1.0.0",
+  "description": "glass ceiling project for swe",
+  "main": "index.js",
+  "dependencies": {
+    "firebase": "^7.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zarim/JobPostingProject.git"
+  },
+  "author": "Zari McFadden, Margie Ruffin, Jaida Langham, Leila Hampton, Ulunma Egwim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zarim/JobPostingProject/issues"
+  },
+  "homepage": "https://github.com/zarim/JobPostingProject#readme"
+}
