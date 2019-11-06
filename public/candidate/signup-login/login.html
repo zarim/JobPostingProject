@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <htmL>
     <head>
+
+        <script src="/__/firebase/6.5.0/firebase-app.js"></script>
+        <script src="/__/firebase/6.5.0/firebase-auth.js"></script>
+        <script src="/__/firebase/init.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="login.css">
     </head>
@@ -20,7 +24,7 @@
 
                     <div class="enter">
                         <button type="button" class="cancelButton">Cancel</button>
-                        <input type="button" class="loginButton" id="quickstart-sign-in" value="Login" onclick=toggleSignIn()>
+                        <input type="button" class="loginButton" value="Login" onclick=toggleSignIn()>
                          
                     </div>
                     <div class="signup-route">
@@ -31,4 +35,49 @@
             </form>
         </div>
     </body>
+
+    <script type="text/javascript"> 
+
+    function toggleSignIn() {
+        if (firebase.auth().currentUser) {
+          // [START signout]
+          firebase.auth().signOut();
+          // [END signout]
+        } else {
+          //alert('signing you in')
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+          if (email.length < 4) {
+            alert('Please enter an email address.');
+            return;
+          }
+          if (password.length < 4) {
+            alert('Please enter a password.');
+            return;
+          }
+          // Sign in with email and pass.
+          // [START authwithemail]
+          firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+
+            //redirect to another page
+            
+
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // [START_EXCLUDE]
+            if (errorCode === 'auth/wrong-password') {
+              alert('Wrong password.');
+            } else {
+              alert(errorMessage);
+            }
+            console.log(error);
+            document.getElementById('quickstart-sign-in').disabled = false;
+            // [END_EXCLUDE]
+          });
+          // [END authwithemail]
+        }
+        document.getElementById('quickstart-sign-in').disabled = true;
+      }
+    </script>
 </htmL>
