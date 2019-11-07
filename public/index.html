@@ -3,12 +3,12 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>    
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
     </head>
     <body>
-        <div class="HeaderDiv">
-            <h1 id="Header"> <input type="button" class="header" onclick="location.href='index.html';" value="glass ceiling"/></h1>
-        </div>
         <div class="menu">
+            <h1 id="header"> <input type="button" class="header" onclick="location.href='index.html';" value="glass ceiling"/></h1>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="index.html">Home</a></h2></span>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="mission/mission.html">Mission</a></h2></span>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
@@ -31,7 +31,7 @@
                     <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
 
                     <label>Don't have an account?</label>
-                    <button><a href="Authentication/signin.html">Sign Up</a></button>
+                    <button><a href="candidate/signup-login/signup.html">Sign Up</a></button>
                 </form>
             </div>
             <div class="title"><h2 id="title">You Are...</h2></div>
@@ -49,21 +49,11 @@
                 document.getElementById("myForm").style.display = "none";
             }
         </script>
+        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+        <script src="/__/firebase/init.js"></script>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.2.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.2.1/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-
-
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-
-      
+    
     </body>
 </html>
