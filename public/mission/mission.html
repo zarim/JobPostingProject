@@ -3,6 +3,8 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="mission.css">
+        <link rel="stylesheet" href="/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     </head>
     <body>
         <div class="HeaderDiv">
@@ -18,59 +20,76 @@
         </div>
         <div class="hero-image">
             <div class="hero-text">
-              <h1>Glass Ceiling & Co.</h1>
+              <h2 id="text">THE MISSION OF  </h2>
+              <h1 id="text">GLASS CEILING & CO.</h1>
               <!-- <p>dklfdsfjdlkfdlkfjsa</p>
               <button>Button?</button> -->
             </div>
           </div>
-        <div class="main-container" style="color:white">
-            <p>The mission of Glass Ceiling Company is to provide a job seeking website that caters to the needs of black women. For Black Women, Made By Black Women, but accessible to everyone. </p>
-            <p>Founded by 5 Spelman Students - Lelia Hampton, Jaida Langham, Margie Ruffin, Zari McFadden, and Ulumna Egwim, these women set out to create a website that would cater to their needs and what they look for within the job searching process during their respective senior years. </p>
-            <p>blah blah blah, statistics from Lelia, blah blah blah, ask Zari about how to get the picture to work</p>
-            <p>blah blah blah, statistics from Lelia, blah blah blah, ask Zari about how to get the picture to work</p>
-            <p>blah blah blah, statistics from Lelia, blah blah blah, ask Zari about how to get the picture to work</p>
-            <p>blah blah blah, statistics from Lelia, blah blah blah, ask Zari about how to get the picture to work</p>
-            <p>blah blah blah, statistics from Lelia, blah blah blah, ask Zari about how to get the picture to work</p>
-            <p>blah blah blah, statistics from Lelia, blah blah blah, ask Zari about how to get the picture to work</p>
-            <p>blah blah blah, statistics from Lelia, blah blah blah, ask Zari about how to get the picture to work</p>
+        <div class="main-container" style="color:white" style="text-align:center">
+            <p id="mission-text">Glass Ceiling and Company was founded in 2019 by five seniors at Spelman College who wanted to change the job seeking process as it pertains to black women. 
+            The Glass Ceiling Career portal seeks to spread further awareness and educate companies and individuals on the impact of the -isms (racism, sexism, ableism, etc.) while also providing an environment to combat the lack of accessibility, unconscious bias, and lack of transparency when it comes to diversity and inclusion. 
+            The mission of Glass Ceiling Company is to provide a job seeking website that caters to the needs of black women; embodying the mantra of FUBU - For Black Women, By Black Women, but accessible to everyone. 
+            
+            
         </div>
-        <!-- Photo Grid --> 
-        <div class="row"> 
-        <div class="column">
-            <img src="Spelman1.jpg" style="width:100%">
-            <img src="Spelman2.jpg" style="width:100%">
-            <img src="Spelman3.jpg" style="width:100%">
-            <img src="Spelly9.gif" style="width:100%">
-            <img src="Spelman4.jpg" style="width:100%">
-            <img src="Spelman5.jpg" style="width:100%">
-            <img src="Spelman6.jpg" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="Spelly8.gif" style="width:100%">
-            <img src="Spelman7.jpg" style="width:100%">
-            <img src="Spelman1.jpg" style="width:100%">
-            <img src="Spelman2.jpg" style="width:100%">
-            <img src="Spelman3.jpg" style="width:100%">
-            <img src="Spelly10.gif" style="width:100%">
-        </div>  
-        <div class="column">
-            <img src="Spelman4.jpg" style="width:100%">
-            <img src="Spelman5.jpg" style="width:100%">
-            <img src="Spelman6.jpg" style="width:100%">
-            <img src="Spelly9.gif" style="width:100%">
-            <img src="Spelman1.jpg" style="width:100%">
-            <img src="Spelman2.jpg" style="width:100%">
-            <img src="Spelman3.jpg" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="Spelly8.gif" style="width:100%">
-            <img src="Spelman4.jpg" style="width:100%">
-            <img src="Spelman5.jpg" style="width:100%">
-            <img src="Spelman6.jpg" style="width:100%">
-            <img src="Spelman7.jpg" style="width:100%">
-            <img src="Spelly10.gif" style="width:100%">
-        </div>
-        </div>
+
+        
+        
+        <div style="text-align:center" style="color:white">
+                <h1 style="color:white">Did you know these facts below?</h1>
+                <p style="color:white">Click on the boxes:</p>
+              </div>
+              
+              <!-- Three columns -->
+              <div class="row">
+                <div class="column" onclick="openTab('b1');" style="background:#8EB8E5;" id="f-text">
+                  FACT 1
+                </div>
+                <div class="column" onclick="openTab('b2');" style="background:blue;" id="f-text">
+                  FACT 2
+                </div>
+                <div class="column" onclick="openTab('b3');" style="background:rgb(1, 37, 36);" id="f-text">
+                  FACT 3
+                </div>
+              </div>
+              
+              <!-- Full-width columns: (hidden by default) -->
+              <div id="b1" class="containerTab" style="display:none;background:#8EB8E5">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <h2 id="mission-text">Fact 1</h2>
+                <p id="mission-text">Although the rate at which Black women obtain degrees increases, only 8 percent are employed in the private sector [1]</p>
+              </div>
+              
+              <div id="b2" class="containerTab" style="display:none;background:blue">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <h2 id="mission-text">Fact 2</h2>
+                <p id="mission-text">In 2017, 55.9% of college-educated Black women and men were underemployed in an occupation that did not require a degree, resulting in lower wages and less relief from than their counterparts[1]</p>
+                <p id="mission-text">In general, a Black woman make 67 cents to a white man’s dollar, meaning Black women are subjected to a gender pay gap and a racial wage gap[2]</p>
+              </div>
+              
+              <div id="b3" class="containerTab" style="display:none;background:rgb(1, 37, 36)">
+                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <h2 id="mission-text">Fact 3</h2>
+                <p id="mission-text">Although Black women work more hours than white men and white women, and the hours they have worked have increased by almost 20 percent since 1979, Black women are still paid significantly less than both demographics[2]</p>
+              </div>
+              
+              <script>
+              function openTab(tabName) {
+                var i, x;
+                x = document.getElementsByClassName("containerTab");
+                for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
+                }
+                document.getElementById(tabName).style.display = "block";
+              }
+              </script>
+
+<div class="footer" style="color:white">
+    <p> Fact Sources: </p>
+    <p>[1] Asha Dumonthier, Chandra Childers, Ph.D., and Jessica Milli, Ph.D. 2016. The Status of Black Women in the United States. Retrieved September 23, 2019 from https://www.domesticworkers.org/status-black-women-united-states.</p>
+    <p>[2] Valerie Wilson, Janelle Jones, Kayla Blado, and Elise Gould. 2017. Black women have to work 7 months into 2017 to be paid the same as white men in 2016. (July 2017). Retrieved September 23, 2019 from https://www.epi.org/blog/black-women-have-to-work-7-months-into-2017-to-be-paid-the-same-as-white-men-in-2016/.</p>
+    </div>
   
   
     </body>
