@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
-
-
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="user.css">
     </head>
 
     <body>
         <script src="../../database.js"></script>
+
         <div class="page">
             <div class="menu">
                 <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
@@ -67,6 +63,11 @@
                 </div>
             </div>
         </div>
+        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+        
     </body>
 </html>
 
@@ -77,46 +78,37 @@
     </body>
 
     <script type="text/javascript">
+        var database = firebase.firestore();
+        
         //figure out how to create a new doc for each User Profile
         const docRef = database.doc("userProfiles/101");
-
         // Name
         const NameHeader = document.querySelector("#text");
         const NameTextField = document.querySelector("#name-top-input");
-
         // Email
         const EmailHeader = document.querySelector("#text");
         const EmailTextField = document.querySelector("#email-top-input");
-
         // Phone Number
         const NumberHeader = document.querySelector("#bottom-text");
         const NumberTextField = document.querySelector("#number-bottom-input");
-
         // Location
         const LocationHeader = document.querySelector("#bottom-text");
         const LocationTextField = document.querySelector("#location-bottom-input");
-
         // Education
         const EducationHeader = document.querySelector("#bottom-text");
         const EducationTextField = document.querySelector("#education-bottom-input");
-
         // Website/GitHub URL
         const WebsiteHeader = document.querySelector("#bottom-text");
         const WebsiteTextField = document.querySelector("#website-bottom-input");
-
         // Affiliations
         const AffilHeader = document.querySelector("#right-text");
         const AffilTextField = document.querySelector("#affil-right-input");
-
         // LinkedIn
         const LinkedHeader = document.querySelector("#right-text");
         const LinkedTextField = document.querySelector("#linkedin-input")
-
         //Resume  
-
         // JobSearch
         const JobSearcButton = document.querySelector("#job-input");
-
         const SaveButton = document.querySelector("#SaveButton");
       
         SaveButton.addEventListener("click", function () {
@@ -125,28 +117,20 @@
             const NameToSave = NameTextField.value;
             // Email
             const EmailToSave = EmailTextField.value;
-
             // Phone Number
             const NumberToSave = NumberTextField.value;
-
             // Location
             const LocationToSave = LocationTextField.value;
-
             // Education
             const EducationToSave = EducationTextField.value;
-
             // Website/GitHub URL
             const WebsiteToSave = WebsiteTextField.value;
-
             // Affiliations 
             const AffilToSave = AffilTextField.value;
-
             // LinkedIn
             const LinkedToSave = LinkedTextField.value;
-
             // JobSearch
             const JobSearchSave = JobSearcButton.value;
-
             console.log("I am going to save data to Firestore")
         
             docRef.set({
@@ -159,7 +143,6 @@
                 Affiliations: AffilToSave,
                 LinkedIn_URL: LinkedToSave,
                 JobSearch: true
-
             }).then(function(){
                 console.log("Name Saved");
                 alert("Information Successfuly Saved!");

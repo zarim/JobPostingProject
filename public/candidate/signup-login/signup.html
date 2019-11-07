@@ -3,17 +3,20 @@
 <!DOCTYPE html>
 <htmL>
     <head>
-        <script src="/__/firebase/6.5.0/firebase-app.js"></script>
-        <script src="/__/firebase/6.5.0/firebase-auth.js"></script>
-        <script src="/__/firebase/init.js"></script>
+
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="signup.css">
     </head>
 
     <script type="text/javascript" src="../../Authentication/authentication.js"></script>
-    <script type="text/javascript" src="../../database.js"></script>
+    
     
     <body>
+        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+
         <form>
             <div class="container">
                 <h1 class="signup" id="text">Candidate Signup</h1>
@@ -42,11 +45,9 @@
     </body>
 
     <script type="text/javascript">
-
         function handleSignUp() {
 
         //save the name in the database maybe
-
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         if (email.length < 4) {
@@ -80,28 +81,10 @@
           // Email Verification sent!
           // [START_EXCLUDE]
           alert('Email Verification Sent!');
-
           top.location.href = "../user-profile/user.html";
-
-
-          //============================================================
-          //redirect to profile page
-          //<meta http-equiv="Refresh" content="0; a href= />
-          //============================================================
-
-          // [END_EXCLUDE]
         });
       }
+      
 
-      /*function sendEmailVerification() {
-        // [START sendemailverification]
-        firebase.auth().currentUser.sendEmailVerification().then(function() {
-          // Email Verification sent!
-          // [START_EXCLUDE]
-          alert('Email Verification Sent!');
-          // [END_EXCLUDE]
-        });
-        // [END sendemailverification]
-      }*/
         </script>
 </htmL>
