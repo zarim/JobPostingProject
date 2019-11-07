@@ -5,13 +5,13 @@ Job posting board project for software engineering
 To run locally:
 - Clone the repo and open the index.html file in Chrome
 
-- To host locally on Firebase:
+To host locally on Firebase:
 ```
 firebase serve
 ```
 Then command + click the link that appears. Should be localhost:somenumber
 
-- To deploy on Firebase:
+To deploy on Firebase:
 ```
 firebase deploy
 ```
