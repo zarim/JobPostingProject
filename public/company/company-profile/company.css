@@ -1,0 +1,165 @@
+html {
+    background-color: darkslategray;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #00C9C9;
+    font-family: 'Lato', sans-serif;
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+#header {
+    margin: auto;
+}
+
+#menu-item {
+    margin: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 47px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#menu-item a {
+    text-decoration: none;
+    color: #00C9C9;
+}
+
+.menu {
+    width: 100%;
+    margin: 1% auto;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+
+.company-header {
+    height: 70px;
+    margin: 1% auto;
+}
+
+#company-header {
+    color: #00C9C9;
+    margin: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-container {
+    width: 50%;
+    height: 600px;
+    margin: 1%;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 600px;
+    margin: 1%;
+    padding: 1%;
+}
+
+.circle-cropper {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.top {
+    margin: 3%;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+}
+
+.add-job-button {
+    float: left;
+    border: none;
+    width: 80%;
+    margin: 2% auto;
+    height: 30px;
+}
+
+.see-job-button {
+    float: right;
+    border: none;
+    width: 80%;
+    margin: 2% auto;
+    height: 30px;
+}
+
+#company {
+    height: 20px;
+    width: 80%;
+    margin: 3% auto;
+}
+
+#right-input {
+    width: 80%;
+    margin: 2% auto;
+    height: 150px;
+}
+
+#right-text {
+    font-family: 'Lato', sans-serif;
+    color: #00C9C9;
+    font-weight: bold;
+    text-align: center;
+}
+
+.enter {
+    width: 80%;
+    margin: 3% auto;
+}
+
+.cancelButton {
+    border: none;
+    background-color: white;
+    float: left;
+    width: 45%;
+    height: 40px;
+
+}
+
+.saveButton {
+    border: none;
+    background-color: #00C9C9;
+    float: right;
+    width: 45%;
+    height: 40px;
+}
