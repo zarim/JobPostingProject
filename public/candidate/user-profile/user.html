@@ -6,6 +6,8 @@
     </head>
 
     <body>
+        <script src="../../database.js"></script>
+
         <div class="page">
             <div class="menu">
                 <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
@@ -27,41 +29,129 @@
                         </div>
                         <div class="top-right">
                             <label class="user-name" id="text">Name</label>
-                            <input type="text" placeholder="Enter name" name="name" id="top-input" required>
+                            <input type="text" placeholder="Enter name" name="name" id="name-top-input" required>
                             <label class="email" id="text">Email</label>
-                            <input type="text" placeholder="Enter email" name="email" id="top-input" required>
+                            <input type="email" placeholder="Enter email" name="email" id="email-top-input" required>
                         </div>
                     </div>
                     <div class="bottom">
                         <label class="user-name" id="bottom-text">Phone Number</label>
-                        <input type="text" placeholder="Enter name" name="name" id="bottom-input" required>
-                        <label class="email" id="bottom-text">Location</label>
-                        <input type="text" placeholder="Enter email" name="email" id="bottom-input" required>
-                        <label class="user-name" id="bottom-text">Education</label>
-                        <input type="text" placeholder="Enter name" name="name" id="bottom-input" required>
-                        <label class="email" id="bottom-text">Website/Github</label>
-                        <input type="text" placeholder="Enter email" name="email" id="bottom-input" required>
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Enter Phone Number" name="phoneNumber" id="number-bottom-input">
+                        <label class="location" id="bottom-text">Location</label>
+                        <input type="text" placeholder="Enter Location" name="location" id="location-bottom-input">
+                        <label class="education" id="bottom-text">Education</label>
+                        <input type="text" placeholder="Enter Education     Ex. Spelman College" name="education" id="education-bottom-input">
+                        <label class="website" id="bottom-text">Website/Github</label>
+                        <input type="url" placeholder="Enter Website or Github URL" name="website" id="website-bottom-input">
                     </div>
                 </div>
                 <div class="right-container">
-                    <label class="user-name" id="right-text">Phone Number</label>
-                    <input type="text" placeholder="Enter name" name="name" id="right-input" required>
-                    <label class="user-name" id="right-text">Phone Number</label>
-                    <input type="text" placeholder="Enter name" name="name" id="right-input" required>
-                    <label class="user-name" id="right-text">LinkedIn</label>
-                    <input type="text" placeholder="Enter LinkedIn link" name="name" id="linkedin-input" required>
-                    <label class="user-name" id="right-text">Upload Resume</label>
-                    <input type="button" value="Upload File" name="name" id="resume-input" class="resume-input" required>
+                    <label class="user-name" id="right-text">Affiliations</label>
+                    <input type="text" placeholder="Enter Orgianizations/Affiliations" name="Affiliations" id="affil-right-input" >
+                    <label class="website2" id="right-text">LinkedIn</label>
+                    <input type="url" placeholder="Enter LinkedIn link" name="LinkedIn" id="linkedin-input" >
+                    <label class="resume" id="right-text">Upload Resume</label>
+                    <input type="file" value="Upload File" name="name" id="resume-input" class="resume-input" >
                     <div class="job-search">
-                        <input type="checkbox" placeholder="searching" name="searching" id="job-input" required>
+                        <input type="checkbox" placeholder="searching" name="searching" id="job-input" >
                         <p1 id="looking-for-job">Currently looking for a job</p1>
                     </div>
                     <div class="enter">
                         <button type="button" class="cancelButton">Quit</button>
-                        <input type="button" class="signupButton" value="Save" onclick="userSignUp(document.getElementById('email').value, document.getElementById('password').value, document.getElementById('reenter-password').value);">
+                        <input type="button" class="signupButton" id="SaveButton" value="Save">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+        
+    </body>
+</html>
+
                     </div>
                 </div>
             </div>
         </div>
     </body>
+
+    <script type="text/javascript">
+        var database = firebase.firestore();
+        
+        //figure out how to create a new doc for each User Profile
+        const docRef = database.doc("userProfiles/101");
+        // Name
+        const NameHeader = document.querySelector("#text");
+        const NameTextField = document.querySelector("#name-top-input");
+        // Email
+        const EmailHeader = document.querySelector("#text");
+        const EmailTextField = document.querySelector("#email-top-input");
+        // Phone Number
+        const NumberHeader = document.querySelector("#bottom-text");
+        const NumberTextField = document.querySelector("#number-bottom-input");
+        // Location
+        const LocationHeader = document.querySelector("#bottom-text");
+        const LocationTextField = document.querySelector("#location-bottom-input");
+        // Education
+        const EducationHeader = document.querySelector("#bottom-text");
+        const EducationTextField = document.querySelector("#education-bottom-input");
+        // Website/GitHub URL
+        const WebsiteHeader = document.querySelector("#bottom-text");
+        const WebsiteTextField = document.querySelector("#website-bottom-input");
+        // Affiliations
+        const AffilHeader = document.querySelector("#right-text");
+        const AffilTextField = document.querySelector("#affil-right-input");
+        // LinkedIn
+        const LinkedHeader = document.querySelector("#right-text");
+        const LinkedTextField = document.querySelector("#linkedin-input")
+        //Resume  
+        // JobSearch
+        const JobSearcButton = document.querySelector("#job-input");
+        const SaveButton = document.querySelector("#SaveButton");
+      
+        SaveButton.addEventListener("click", function () {
+    
+            //NametoSave  
+            const NameToSave = NameTextField.value;
+            // Email
+            const EmailToSave = EmailTextField.value;
+            // Phone Number
+            const NumberToSave = NumberTextField.value;
+            // Location
+            const LocationToSave = LocationTextField.value;
+            // Education
+            const EducationToSave = EducationTextField.value;
+            // Website/GitHub URL
+            const WebsiteToSave = WebsiteTextField.value;
+            // Affiliations 
+            const AffilToSave = AffilTextField.value;
+            // LinkedIn
+            const LinkedToSave = LinkedTextField.value;
+            // JobSearch
+            const JobSearchSave = JobSearcButton.value;
+            console.log("I am going to save data to Firestore")
+        
+            docRef.set({
+                userName: NameToSave,
+                Email: EmailToSave,
+                PhoneNumber: NumberToSave,
+                Location: LocationToSave,
+                Education: EducationToSave,
+                Website_URL: WebsiteToSave,
+                Affiliations: AffilToSave,
+                LinkedIn_URL: LinkedToSave,
+                JobSearch: true
+            }).then(function(){
+                console.log("Name Saved");
+                alert("Information Successfuly Saved!");
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+        })
+    
+        </script>
+
+    
 </html>
