@@ -1,7 +1,5 @@
-import { initializeApp } from "firebase";
 
-
-var firebaseConfig = {
+/*var firebaseConfig = {
     apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
     authDomain: "glassceilingswe.firebaseapp.com",
     databaseURL: "https://glassceilingswe.firebaseio.com",
@@ -12,12 +10,43 @@ var firebaseConfig = {
     measurementId: "G-LEHC8NNE1X"
   };
 
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);*/
+
+  // Initialize Cloud Firestore through Firebase
+    firebase.initializeApp({
+    apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+    authDomain: "glassceilingswe.firebaseapp.com",
+    projectId: "glassceilingswe",
+  });
+
+
+  var database = firebase.firestore();
+
+  /*<script type="text/javascript">
+    const docRef = database.doc("userProfiles/101");
+    const outputHeader = document.querySelector("#text");
+    const inputTextField = document.querySelector("#top-input");
+    const SaveButton = document.querySelector("#SaveButton");
+  
+    window.onload=function(){
+    SaveButton.addEventListener("click", function () {
+
+      const textToSave = inputTextField.value;
+      console.log("I am going to save" + textToSave + "to Firestore")
+
+      docRef.set({
+          userName: textToSave
+      }).then(function(){
+          console.log("Name Saved");
+      }).catch(function (error) {
+          console.log("Got an error: ", error);
+      });
+    })
+}
+    </script>
 
 
 
-/*<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>*/
 
 /*const firebase = require("firebase");
         // Required for side-effects
@@ -25,19 +54,7 @@ var firebaseConfig = {
 
 
 
-
-
-
-// Initialize Cloud Firestore through Firebase
-/*firebase.initializeApp({
-    apiKey: 'AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g',
-    authDomain: 'glassceilingswe.firebaseapp.com',
-    projectId: 'glassceilingswe'
-  });
-  
-  var db = firebase.firestore();
-
-// database functions
+/*
 
 
 db.collection("CompanyProfile").doc("4001").set({

@@ -59,9 +59,6 @@
           // [START authwithemail]
           firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
 
-            //redirect to another page
-            
-
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -78,6 +75,9 @@
           // [END authwithemail]
         }
         document.getElementById('quickstart-sign-in').disabled = true;
+
+        
+        top.location.href = "../user-profile/user.html";
       }
     </script>
 </htmL>
