@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="company.css">
+    </head>
+
+    <body>
+        <div class="page">
+            <div class="menu">
+                <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+            </div>
+            <div class="company-header">
+                <h2 id="company-header">Company Profile</h2>
+            </div>
+            <div class="content">
+                <div class="left-container">
+                    <div class="top">
+                        <div class="circle-cropper"></div>
+                    </div>
+                    <div class="middle">
+                        <label class="user-name" id="right-text">Company Name</label>
+                        <input type="text" placeholder="Enter company name" name="company" id="company" required>
+                        <label class="user-name" id="right-text">Company History</label>
+                        <input type="text" placeholder="Enter history about the company" name="history" id="right-input" required>
+                    </div>
+                    <div class="bottom">
+                        <input type="button" class="add-job-button" value="Add Job Role" onclick="location.href='../add-job-role/job.html'">
+                        <input type="button" class="see-job-button" value="Current Job Listings" onclick="">
+                    </div>
+                </div>
+                <div class="right-container">
+                    <label class="user-name" id="right-text">Diversity and Inclusion</label>
+                    <input type="text" placeholder="Enter diversity and inclusion information" name="diversity" id="right-input" required>
+                    <label class="user-name" id="right-text">Benefits</label>
+                    <input type="text" placeholder="Enter company benefits" name="benefits" id="right-input" required>
+                    <label class="user-name" id="right-text">Fun Facts</label>
+                    <input type="text" placeholder="Enter fun facts about the company" name="facts" id="right-input" required>
+                    <div class="enter">
+                        <button type="button" class="cancelButton">Quit</button>
+                        <input type="button" class="saveButton" value="Save" onclick="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
