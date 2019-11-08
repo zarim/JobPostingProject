@@ -3,12 +3,11 @@
   <head>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
     <script src="/__/firebase/init.js"></script>
-    <script type="text/javascript" src="../../Authentication/authentication.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="login.css">
   </head>
+  <script type="text/javascript" src="../../Authentication/authentication.js"></script>
   <body>
     <div class="main-container">
       <form>
@@ -20,23 +19,23 @@
           <input type="password" placeholder="Enter password" name="password" id="password" required>
           <div class="enter">
             <button type="button" class="cancelButton">Cancel</button>
-            <input type="button" class="loginButton" value="Login" onclick=toggleSignIn()>          
+            <input type="button" class="loginButton" value="Login" onclick=toggleSignIn()>    
           </div>
           <div class="signup-route">
-              <h3 id="signup">Don't have an account?</h3>
-              <span tabindex="-1" class="signup"><input type="button" class="signup" id="text" onclick="location.href='../signup-login/signup.html';" value="Signup"/></span>
+            <h3 id="signup">Don't have an account?</h3>
+            <span tabindex="-1" class="signup"><input type="button" class="signup" id="text" onclick="location.href='../signup-login/signup.html';" value="Signup"/></span>
           </div>
-        </div>
+          </div>
       </form>
     </div>
   </body>
-
   <script type="text/javascript"> 
-    function toggleSignIn() {
-      if (firebase.auth().currentUser) {
-          // [START signout]
-          firebase.auth().signOut();
-          // [END signout]
+
+  function toggleSignIn() {
+    if (firebase.auth().currentUser) {
+      // [START signout]
+      firebase.auth().signOut();
+      // [END signout]
       } else {
         //alert('signing you in')
         var email = document.getElementById('email').value;
@@ -51,6 +50,7 @@
           alert('Please enter a password.');
           return;
         }
+
         // Sign in with email and pass.
         // [START authwithemail]
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -67,7 +67,7 @@
           document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
         });
-        // [END authwithemail]
+          // [END authwithemail]
       }
       document.getElementById('quickstart-sign-in').disabled = true;
       top.location.href = "../user-profile/user.html";
