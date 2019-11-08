@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+        <script src="../../database.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="user.css">
     </head>
 
     <body>
-        <script src="../../database.js"></script>
-
         <div class="page">
             <div class="menu">
                 <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
@@ -63,18 +69,6 @@
                 </div>
             </div>
         </div>
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
-        
-    </body>
-</html>
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </body>
 
     <script type="text/javascript">
@@ -112,7 +106,6 @@
         const SaveButton = document.querySelector("#SaveButton");
       
         SaveButton.addEventListener("click", function () {
-    
             //NametoSave  
             const NameToSave = NameTextField.value;
             // Email
@@ -151,7 +144,5 @@
             });
         })
     
-        </script>
-
-    
+    </script>
 </html>

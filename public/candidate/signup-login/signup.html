@@ -1,90 +1,83 @@
-
-
 <!DOCTYPE html>
 <htmL>
-    <head>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="signup.css">
-    </head>
-
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
     <script type="text/javascript" src="../../Authentication/authentication.js"></script>
-    
-    
-    <body>
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+    <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+    <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+    <script type="text/javascript" src="../../Authentication/authentication.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="signup.css">
+  </head>
+  <body>
+    <form>
+      <div class="container">
+        <h1 class="signup" id="text">Candidate Signup</h1>
+        <label class="user-name" id="text">Name</label>
+        <input type="text" placeholder="Enter name" name="name" id="name" required>
+        <label class="email" id="text">Email</label>
+        <input type="text" placeholder="Enter email" name="email" id="email" required>
+        <label class="password" id="text">Password</label>
+        <input type="password" placeholder="Enter password" name="password" id="password" required>
+        <label class="password" id="text">Re-Enter Password</label>
+        <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password"  required>
+        <div class="enter">
+          <button type="button" class="cancelButton">Cancel</button>
+          <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
+        </div>
+        <div class="login-route">
+          <h3 id="login">Have an account?</h3>
+          <span tabindex="-1" class="login"><input type="button" class="login" id="text" onclick="location.href='../signup-login/login.html';" value="Login"/></span>
+        </div>
+        <div class="other">
+          <span tabindex="-1" class="other"><input type="button" class="other" id="text" onclick="location.href='../../company/signup-login/signup.html';" value="Signup as Company"/></span>
+        </div>
+      </div>
+    </form>
+  </body>
 
-        <form>
-            <div class="container">
-                <h1 class="signup" id="text">Candidate Signup</h1>
-                <label class="user-name" id="text">Name</label>
-                <input type="text" placeholder="Enter name" name="name" id="name" required>
-                <label class="email" id="text">Email</label>
-                <input type="text" placeholder="Enter email" name="email" id="email" required>
-                <label class="password" id="text">Password</label>
-                <input type="password" placeholder="Enter password" name="password" id="password" required>
-                <label class="password" id="text">Re-Enter Password</label>
-                <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password"  required>
-                <div class="enter">
-                    <button type="button" class="cancelButton">Cancel</button>
-                    <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
-                </div>
-                <div class="login-route">
-                    <h3 id="login">Have an account?</h3>
-                    <span tabindex="-1" class="login"><input type="button" class="login" id="text" onclick="location.href='../signup-login/login.html';" value="Login"/></span>
-                </div>
-                <div class="other">
-                    <span tabindex="-1" class="other"><input type="button" class="other" id="text" onclick="location.href='../../company/signup-login/signup.html';" value="Signup as Company"/></span>
-                </div>
-            </div>
-        </form>
-
-    </body>
-
-    <script type="text/javascript">
-        function handleSignUp() {
-
-        //save the name in the database maybe
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        if (email.length < 4) {
-          alert('Please enter an email address.');
-          return;
-        }
-        if (password.length < 4) {
-          alert('Please enter a password.');
-          return;
-        }
-        // Sign in with email and pass.
-        // [START createwithemail]
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-          
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // [START_EXCLUDE]
-          if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);
-          // [END_EXCLUDE]
-        });
-        // [END createwithemail]
-
-        //sendEmailVerification();
-        firebase.auth().currentUser.sendEmailVerification().then(function() {
-          // Email Verification sent!
-          // [START_EXCLUDE]
-          alert('Email Verification Sent!');
-          top.location.href = "../user-profile/user.html";
-        });
+  <script type="text/javascript">
+    function handleSignUp() {
+      //save the name in the database maybe
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
       }
-      
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START createwithemail]
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      });
+      // [END createwithemail]
 
-        </script>
+      //sendEmailVerification();
+      firebase.auth().currentUser.sendEmailVerification().then(function() {
+        // Email Verification sent!
+        // [START_EXCLUDE]
+        alert('Email Verification Sent!');
+        top.location.href = "../user-profile/user.html";
+      });
+    }
+  </script>
 </htmL>
