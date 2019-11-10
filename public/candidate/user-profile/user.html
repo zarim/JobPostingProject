@@ -78,10 +78,16 @@
     </body>
 
     <script type="text/javascript">
+
+        //initalize the database for the user
         var database = firebase.firestore();
         
         //figure out how to create a new doc for each User Profile
+        //create a collection and document reference for profiles
         const docRef = database.doc("userProfiles/101");
+
+        // assign names to fields that need to be added to DB
+
         // Name
         const NameHeader = document.querySelector("#text");
         const NameTextField = document.querySelector("#name-top-input");
@@ -107,11 +113,14 @@
         const LinkedHeader = document.querySelector("#right-text");
         const LinkedTextField = document.querySelector("#linkedin-input")
         //Resume  
+
         // JobSearch
         const JobSearcButton = document.querySelector("#job-input");
         const SaveButton = document.querySelector("#SaveButton");
       
         SaveButton.addEventListener("click", function () {
+
+            //onClick of the save button add these fields to DB
     
             //NametoSave  
             const NameToSave = NameTextField.value;
@@ -152,6 +161,5 @@
         })
     
         </script>
-
-    
 </html>
+    

@@ -29,62 +29,65 @@
                 <label class="password" id="text">Re-Enter Password</label>
                 <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password"  required>
                 <div class="enter">
-                    <button type="button" class="cancelButton">Cancel</button>
-                    <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
-                </div>
-                <div class="login-route">
-                    <h3 id="login">Have an account?</h3>
-                    <span tabindex="-1" class="login"><input type="button" class="login" id="text" onclick="location.href='../signup-login/login.html';" value="Login"/></span>
-                </div>
-                <div class="other">
-                    <span tabindex="-1" class="other"><input type="button" class="other" id="text" onclick="location.href='../../company/signup-login/signup.html';" value="Signup as Company"/></span>
-                </div>
-            </div>
-        </form>
+                  <button type="button" class="cancelButton">Cancel</button>
+                  <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
+              </div>
+              <div class="login-route">
+                  <h3 id="login">Have an account?</h3>
+                  <span tabindex="-1" class="login"><input type="button" class="login" id="text" onclick="location.href='../signup-login/login.html';" value="Login"/></span>
+              </div>
+              <div class="other">
+                  <span tabindex="-1" class="other"><input type="button" class="other" id="text" onclick="location.href='../../company/signup-login/signup.html';" value="Signup as Company"/></span>
+              </div>
+          </div>
+      </form>
 
-    </body>
+  </body>
 
-    <script type="text/javascript">
-        function handleSignUp() {
+  <script type="text/javascript">
 
-        //save the name in the database maybe
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        if (email.length < 4) {
-          alert('Please enter an email address.');
-          return;
-        }
-        if (password.length < 4) {
-          alert('Please enter a password.');
-          return;
-        }
-        // Sign in with email and pass.
-        // [START createwithemail]
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-          
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // [START_EXCLUDE]
-          if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);
-          // [END_EXCLUDE]
-        });
-        // [END createwithemail]
+      // function to handle signup to the system
+      function handleSignUp() {
 
-        //sendEmailVerification();
-        firebase.auth().currentUser.sendEmailVerification().then(function() {
-          // Email Verification sent!
-          // [START_EXCLUDE]
-          alert('Email Verification Sent!');
-          top.location.href = "../user-profile/user.html";
-        });
+      //save the name in the database maybe
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      //password length verification
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
       }
-      
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign up with email and pass.
+      // [START createwithemail]
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      });
+      // [END createwithemail]
 
-        </script>
-</htmL>
+      //sendEmailVerification();
+      firebase.auth().currentUser.sendEmailVerification().then(function() {
+        // Email Verification sent!
+        // [START_EXCLUDE]
+        alert('Email Verification Sent!');
+        top.location.href = "../user-profile/user.html";
+      });
+    }
+    
+
+      </script>
+</html>
