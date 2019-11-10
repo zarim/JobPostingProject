@@ -38,7 +38,8 @@
     </body>
 
     <script type="text/javascript"> 
-
+    //function to signin to the system. 
+    //Not fully implemented yet
     function toggleSignIn() {
         if (firebase.auth().currentUser) {
           // [START signout]
@@ -77,7 +78,7 @@
         }
         document.getElementById('quickstart-sign-in').disabled = true;
 
-        
+        //redirect user to this page 
         top.location.href = "../user-profile/user.html";
       }
     </script>

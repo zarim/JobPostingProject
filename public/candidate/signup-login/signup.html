@@ -45,11 +45,14 @@
     </body>
 
     <script type="text/javascript">
+
+        // function to handle signup to the system
         function handleSignUp() {
 
         //save the name in the database maybe
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
+        //password length verification
         if (email.length < 4) {
           alert('Please enter an email address.');
           return;
@@ -58,7 +61,7 @@
           alert('Please enter a password.');
           return;
         }
-        // Sign in with email and pass.
+        // Sign up with email and pass.
         // [START createwithemail]
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
           
