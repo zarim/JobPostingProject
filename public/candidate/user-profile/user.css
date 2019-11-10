@@ -107,7 +107,13 @@ html {
     flex-direction: column;
 }
 
-#top-input {
+#name-top-input {
+    width: 80%;
+    margin: 5% auto;
+    height: 20px;
+}
+
+#email-top-input {
     width: 80%;
     margin: 5% auto;
     height: 20px;
@@ -126,7 +132,25 @@ html {
     flex-direction: column;
 }
 
-#bottom-input {
+#number-bottom-input {
+    width: 80%;
+    margin: 5% auto;
+    height: 20px;
+}
+
+#location-bottom-input {
+    width: 80%;
+    margin: 5% auto;
+    height: 20px;
+}
+
+#education-bottom-input {
+    width: 80%;
+    margin: 5% auto;
+    height: 20px;
+}
+
+#website-bottom-input {
     width: 80%;
     margin: 5% auto;
     height: 20px;
@@ -148,7 +172,7 @@ html {
     text-align: center;
 }
 
-#right-input {
+#affil-right-input {
     width: 80%;
     margin: 3% auto;
     height: 150px;
@@ -156,7 +180,8 @@ html {
 
 #resume-input {
     margin: 5% auto;
-    width: 80%;
+    height: 20px;
+    color: white;
 }
 
 .resume-input {
