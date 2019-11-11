@@ -82,32 +82,6 @@ html {
     padding: 1%;
 }
 
-.circle-cropper {
-    background-color: white;
-    width: 150px;
-    height: 150px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    margin: auto;
-}
-
-.top {
-    margin: 3%;
-}
-
-.middle {
-    display: flex;
-    flex-direction: column;
-    margin: 3%;
-}
-
-.bottom {
-    display: flex;
-    flex-direction: column;
-    margin: 3%;
-}
-
 .add-job-button {
     float: left;
     border: none;
@@ -166,7 +140,19 @@ html {
     margin: 3% auto;
 }
 
-#right-input {
+#experience {
+    width: 80%;
+    margin: 2% auto;
+    height: 150px;
+}
+
+#requirements {
+    width: 80%;
+    margin: 2% auto;
+    height: 150px;
+}
+
+#description {
     width: 80%;
     margin: 2% auto;
     height: 150px;
@@ -193,7 +179,7 @@ html {
 
 }
 
-.saveButton {
+.addJobButton {
     border: none;
     background-color: #00C9C9;
     float: right;
