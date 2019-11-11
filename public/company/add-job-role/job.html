@@ -1,1 +1,58 @@
 <!--Empty HTML file will eventually contain labels, inputs, and buttons for employers to add a job.-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="job.css">
+    </head>
+
+    <body>
+        <div class="page">
+            <div class="menu">
+                <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+            </div>
+            <div class="company-header">
+                <h2 id="company-header">Add Job Role</h2>
+            </div>
+            <div class="content">
+                <div class="left-container">
+                    <label class="user-name" id="right-text">Company Name</label>
+                    <input type="text" placeholder="Enter company name" name="company" id="company" required>
+                    <label class="user-name" id="right-text">Position Name</label>
+                    <input type="text" placeholder="Enter position" name="company" id="position" required>
+                    <label class="user-name" id="right-text">Location</label>
+                    <input type="text" placeholder="Enter location" name="company" id="location" required>
+                    <label class="user-name" id="right-text">Salary Range</label>
+                    <input type="text" placeholder="Enter salary range" name="company" id="salary" required>
+                    <label class="user-name" id="right-text">Position Type</label>
+                    <input type="text" placeholder="Enter position type ex. Software Engineer, PM, etc." name="company" id="position-type" required>
+                    <label class="user-name" id="right-text">Interview Type</label>
+                    <input type="text" placeholder="Enter interview type ex. behavioral, technical, etc." name="company" id="interview-type" required>
+                    <label class="user-name" id="right-text">Expiration Date</label>
+                    <input type="text" placeholder="Enter expiration date" name="company" id="expiration" required>
+                </div>
+                <div class="right-container">
+                    <label class="user-name" id="right-text">Experience Level</label>
+                    <input type="text" placeholder="Enter experience level required" name="diversity" id="right-input" required>
+                    <label class="user-name" id="right-text">Requirements and Skills Preference</label>
+                    <input type="text" placeholder="Enter job requirements and skills preference" name="benefits" id="right-input" required>
+                    <label class="user-name" id="right-text">Description and Responsibilities</label>
+                    <input type="text" placeholder="Enter job description and responsibilities" name="facts" id="right-input" required>
+                    <div class="enter">
+                        <button type="button" class="cancelButton">Quit</button>
+                        <input type="button" class="saveButton" value="Add Job" onclick="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
