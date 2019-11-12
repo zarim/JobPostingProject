@@ -1,15 +1,20 @@
+<!--HTML for the signup page. Contains labels, inputs, and buttons that allows the user to put in information. Also contains 
+JavaScript code to communicate with Firebase and add users to the database.-->
 <!DOCTYPE html>
 <htmL>
     <head>
-        <script src="/__/firebase/6.5.0/firebase-app.js"></script>
-        <script src="/__/firebase/6.5.0/firebase-auth.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="signup.css">
     </head>
 
     <script type="text/javascript" src="../../Authentication/authentication.js"></script>
     <body>
+
+        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+
         <form>
             <div class="container">
                 <h1 class="signup" id="text">Employer Signup</h1>
@@ -26,7 +31,7 @@
 
                 <div class="enter">
                     <button type="button" class="cancelButton">Cancel</button>
-                    <input type="button" class="signupButton" value="Sign Up" onclick="userSignUp(document.getElementById('email').value, document.getElementById('password').value, document.getElementById('reenter-password').value);">
+                    <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
                 </div>
                 <div class="login-route">
                     <h3 id="login">Have an account?</h3>
@@ -39,12 +44,12 @@
         </form>
     </body>
     <script type="text/javascript">
-        function handleSignUp() {
 
+function handleSignUp() {
         //save the name in the database maybe
-
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
+        //password length verification
         if (email.length < 4) {
           alert('Please enter an email address.');
           return;
@@ -53,9 +58,10 @@
           alert('Please enter a password.');
           return;
         }
-        // Sign in with email and pass.
+        // Sign up with email and pass.
         // [START createwithemail]
-        firebase.auth().createUserWithEmailAndPassword(email, password).sendEmailVerification().alert("Verification Email Sent").catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+          
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -68,38 +74,20 @@
           console.log(error);
           // [END_EXCLUDE]
         });
-        // [END createwithemail]
+      // [END createwithemail]
 
-          //sendEmailVerification();
-          firebase.auth().currentUser.sendEmailVerification().then(function() {
-          // Email Verification sent!
-          // [START_EXCLUDE]
-          alert('Email Verification Sent!');
-      
-          //============================================================
-          //figure out how to send the company a number as their ID
-          //============================================================
-
-
-          //============================================================
-          //redirect to login page
-          //<meta http-equiv="Refresh" content="0; a href= />
-          //============================================================
-
-          // [END_EXCLUDE]
-        });
-        
-
+      //sendEmailVerification();
+      firebase.auth().currentUser.sendEmailVerification().then(function() {
+        // Email Verification sent!
+        // [START_EXCLUDE]
+        alert('Email Verification Sent!');
+        top.location.href = "../company-profile/company.html";
+      });
     }
-      /*function sendEmailVerification() {
-        // [START sendemailverification]
-        firebase.auth().currentUser.sendEmailVerification().then(function() {
-          // Email Verification sent!
-          // [START_EXCLUDE]
-          alert('Email Verification Sent!');
-          // [END_EXCLUDE]
-        
-        // [END sendemailverification]*/
+
+      //Save name and company to database
+      //top.location.href = "../company-profile/company.html";
+      
 
         </script>
 </htmL>
