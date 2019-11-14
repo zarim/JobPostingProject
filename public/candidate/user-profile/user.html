@@ -143,10 +143,13 @@ contains JavaScript code to push the user input into Firebase-->
             }).then(function(){
                 console.log("Info Saved");
                 alert("Information Sucessfully Saved!")
+                //navigate to the company landing page
+                top.location.href = "../../index.html";
             }).catch(function (error) {
                 console.log("Got an error: ", error);
             });
         })
+        
 
         
 /*
@@ -207,9 +210,6 @@ contains JavaScript code to push the user input into Firebase-->
                 alert("Information Successfuly Saved!");
             });
         });  */
-
-        //navigate to the home page
-        top.location.href = "../../../index.html";
 
     </script>    
 

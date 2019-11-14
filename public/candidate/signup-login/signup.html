@@ -25,7 +25,7 @@ JavaScript code to communicate with Firebase and add users to the database.-->
         <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password"  required>
         <div class="enter">
             <button type="button" class="cancelButton">Cancel</button>
-            <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
+            <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp(); sendEmailVerification()">
         </div>
         <div class="login-route">
             <h3 id="login">Have an account?</h3>
@@ -68,15 +68,19 @@ JavaScript code to communicate with Firebase and add users to the database.-->
           console.log(error);
           // [END_EXCLUDE]
         });
-      // [END createwithemail]
+        // [END createwithemail]
+      }
 
-      //sendEmailVerification();
-      firebase.auth().currentUser.sendEmailVerification().then(function() {
-        // Email Verification sent!
-        // [START_EXCLUDE]
-        alert('Email Verification Sent!');
-        top.location.href = "../user-profile/user.html";
-      });
-    }
+      function sendEmailVerification() {
+        // [START sendemailverification]
+        firebase.auth().currentUser.sendEmailVerification().then(function() {
+          // Email Verification sent!
+          // [START_EXCLUDE]
+          alert('Email Verification Sent!');
+          top.location.href = "../user-profile/user.html"; 
+        });
+      }
+    
+    
   </script>
 </htmL>
