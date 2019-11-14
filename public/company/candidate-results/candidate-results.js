@@ -12,19 +12,19 @@ firebase.initializeApp(firebaseConfig);
 
 var db  = firebase.firestore();
 
-function populateJobs() {
+function populateCandidates() {
     var context;
     var compileData;
-    var theScriptHTML = document.getElementById("job-card").innerHTML;
+    var theScriptHTML = document.getElementById("candidate-card").innerHTML;
     var theTemplate = Handlebars.compile(theScriptHTML);
 
-    const candidateSnapshot = db.collection("job-card").get();
+    const candidateSnapshot = db.collection("candidate-card").get();
     candidateSnapshot.then(function(snap) {
         snap.forEach(function(doc) {
-            context = {"role" : doc.data().role, "company" : doc.data().company, "location" : doc.data().location};
+            context = {"name" : doc.data().name, "location" : doc.data().location, "skills" : doc.data().skills};
             compileData = theTemplate(context);
             var template = document.createElement("div")
-            template.setAttribute("id", "job-card");
+            template.setAttribute("id", "candidate-card");
             template.setAttribute("class", "card");
             template.innerHTML = compileData;
             document.body.appendChild(template);
