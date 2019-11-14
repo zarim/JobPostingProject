@@ -67,12 +67,13 @@ contains JavaScript code to push the user input into Firebase-->
         <script src="/__/firebase/init.js"></script>
         <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
         <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+        <script src="/__/firebase/7.2.3/firebase-storage.js"></script>
     </body>
     <script type="text/javascript">
+
+        //initalize the database for the user
         var database = firebase.firestore();
-        
-        //figure out how to create a new doc for each User Profile
-        const docRef = database.doc("userProfiles/101");
+
         // Name
         const NameHeader = document.querySelector("#text");
         const NameTextField = document.querySelector("#name-top-input");
@@ -97,11 +98,12 @@ contains JavaScript code to push the user input into Firebase-->
         // LinkedIn
         const LinkedHeader = document.querySelector("#right-text");
         const LinkedTextField = document.querySelector("#linkedin-input")
-        //Resume  
+
         // JobSearch
         const JobSearcButton = document.querySelector("#job-input");
         const SaveButton = document.querySelector("#SaveButton");
-      
+
+      //onClick of the save button add these fields to DB
         SaveButton.addEventListener("click", function () {
             //NametoSave  
             const NameToSave = NameTextField.value;
@@ -121,7 +123,11 @@ contains JavaScript code to push the user input into Firebase-->
             const LinkedToSave = LinkedTextField.value;
             // JobSearch
             const JobSearchSave = JobSearcButton.value;
+            //resume
             console.log("I am going to save data to Firestore")
+            
+            //create a collection and document reference for profiles
+            const docRef = database.collection("UserProfiles").doc(EmailToSave)
         
             docRef.set({
                 userName: NameToSave,
@@ -134,11 +140,76 @@ contains JavaScript code to push the user input into Firebase-->
                 LinkedIn_URL: LinkedToSave,
                 JobSearch: true
             }).then(function(){
-                console.log("Name Saved");
-                alert("Information Successfuly Saved!");
+                console.log("Info Saved");
+                alert("Information Sucessfully Saved!")
+                //navigate to the company landing page
+                top.location.href = "../../index.html";
             }).catch(function (error) {
                 console.log("Got an error: ", error);
             });
         })
+        
+
+        
+/*
+        //initalize the storage for the user
+        var storage = firebase.storage();
+
+        // Create a storage reference from firebase storage service
+        // with a child reference
+        var storageRef = storage.ref();
+        var imagesRef = storageRef.child('Resumes');
+
+        //resume
+        var file = document.getElementById("resume-input");
+
+        // Create the file metadata
+        var metadata = {
+            contentType: file.type
+        };
+
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        var uploadTask = imagesRef.child('Resumes/' + file.name).put(file, metadata);
+
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        function(snapshot) {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            switch (snapshot.state) {
+            case firebase.storage.TaskState.PAUSED: // or 'paused'
+                console.log('Upload is paused');
+                break;
+            case firebase.storage.TaskState.RUNNING: // or 'running'
+                console.log('Upload is running');
+                break;
+            }
+        }, function(error) {
+
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/unauthorized':
+                // User doesn't have permission to access the object
+                break;
+
+                case 'storage/canceled':
+                // User canceled the upload
+                break;
+
+                case 'storage/unknown':
+                // Unknown error occurred, inspect error.serverResponse
+                break;
+            }
+        }, function() {
+            // Upload completed successfully, now we can get the download URL
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                console.log('File available at', downloadURL);
+                alert("Information Successfuly Saved!");
+            });
+        });  */
+
     </script>    
+
 </html>
