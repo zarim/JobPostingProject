@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+        <link rel="stylesheet" type="text/css" href="company-card.css">
+    </head>
+    <body onload="">
+        <div id="card"></div>
+        <h3 class="header">Current Job Listings</h3>
+        <script id="company-card" type="text/x-handlebars-template">
+            <div id="company-card" class="card">
+                <div class="left">
+                    <div class="circle-cropper"></div>
+                </div>
+                <div class="right">
+                    <div class="role" id="role">Role</div>
+                    <div class="role" id="role">{{role}}</div>
+                    <div class="company" id="company">Company</div>
+                    <div class="company" id="company">{{company}}</div>
+                    <div class="location" id="location">Location</div>
+                    <div class="location" id="location">{{location}}</div>
+                </div>
+            </div>
+        </script>
+    </body>
+</html>
