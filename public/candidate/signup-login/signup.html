@@ -3,15 +3,17 @@ JavaScript code to communicate with Firebase and add users to the database.-->
 <!DOCTYPE html>
 <htmL>
   <head>
+      <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+      <script src="/__/firebase/init.js"></script>
+      <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+      <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+      <script type="text/javascript" src="../../Authentication/authentication.js"></script>
+      <script src ="signup-auth.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="signup.css">
   </head>
-  <script type="text/javascript" src="../../Authentication/authentication.js"></script>
+  
   <body>
-    <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-    <script src="/__/firebase/init.js"></script>
-    <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-    <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
     <form>
       <div class="container">
         <h1 class="signup" id="text">Candidate Signup</h1>
@@ -37,50 +39,4 @@ JavaScript code to communicate with Firebase and add users to the database.-->
       </div>
     </form>
   </body>
-    <script type="text/javascript">
-
-      function handleSignUp() {
-        //save the name in the database maybe
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        //password length verification
-        if (email.length < 4) {
-          alert('Please enter an email address.');
-          return;
-        }
-        if (password.length < 4) {
-          alert('Please enter a password.');
-          return;
-        }
-        // Sign up with email and pass.
-        // [START createwithemail]
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-          
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // [START_EXCLUDE]
-          if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);
-          // [END_EXCLUDE]
-        });
-        // [END createwithemail]
-      }
-
-      function sendEmailVerification() {
-        // [START sendemailverification]
-        firebase.auth().currentUser.sendEmailVerification().then(function() {
-          // Email Verification sent!
-          // [START_EXCLUDE]
-          alert('Email Verification Sent!');
-          top.location.href = "../user-profile/user.html"; 
-        });
-      }
-    
-    
-  </script>
 </htmL>
