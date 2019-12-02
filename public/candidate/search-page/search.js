@@ -1,15 +1,14 @@
-const searchClient = algoliasearch('06N5B5F9IF', 'a0deab13d94f6b03e80de5ae6270d577');
-
-const search = instantsearch({
+var search = instantsearch({
+  appId: '06N5B5F9IF',
+  apiKey: 'a0deab13d94f6b03e80de5ae6270d577',
   indexName: 'jobs',
-  searchClient,
   routing:true
 });
 
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#q',
-	placeholder: 'Search For Jobs'
+	placeholder: 'Search For Jobs',
 	searchAsYouType: true,
 	showLoadingIndicator: true
   })
