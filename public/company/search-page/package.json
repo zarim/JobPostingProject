@@ -1,0 +1,12 @@
+{
+  "name": "job-portal-search-engine-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+
+  },
+  "dependencies": {
+	"instantsearch": "^3.0.0",
+	"algoliasearch" : "^3.35.1"
+  }
+}
