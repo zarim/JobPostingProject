@@ -3,18 +3,27 @@ JavaScript code to communicate with Firebase and add users to the database.-->
 <!DOCTYPE html>
 <htmL>
     <head>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+
+        <script type="text/JavaScript" src="../../Authentication/authentication.js"></script>
+    
+        <script> 
+          window.onload = function() {
+            initApp();
+          };
+        </script>
+
+        <script type="text/javascript" src="comp-signup-auth.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="signup.css">
     </head>
-
-    <script type="text/javascript" src="../../Authentication/authentication.js"></script>
+ 
     <body>
-
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
-
         <form>
             <div class="container">
                 <h1 class="signup" id="text">Employer Signup</h1>

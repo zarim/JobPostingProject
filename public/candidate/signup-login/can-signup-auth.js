@@ -1,16 +1,16 @@
-
 const firebaseConfig = {
-    apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
-    authDomain: "glassceilingswe.firebaseapp.com",
-    databaseURL: "https://glassceilingswe.firebaseio.com",
-    projectId: "glassceilingswe",
-    storageBucket: "glassceilingswe.appspot.com",
-    messagingSenderId: "318857051230",
-    appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
-    measurementId: "G-LEHC8NNE1X"
-  };
-
+  apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+  authDomain: "glassceilingswe.firebaseapp.com",
+  databaseURL: "https://glassceilingswe.firebaseio.com",
+  projectId: "glassceilingswe",
+  storageBucket: "glassceilingswe.appspot.com",
+  messagingSenderId: "318857051230",
+  appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+  measurementId: "G-LEHC8NNE1X"
+};
 firebase.initializeApp(firebaseConfig);
+
+var db  = firebase.firestore();
 
 function handleSignUp() {
     //save the name in the database maybe
