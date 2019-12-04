@@ -3,29 +3,21 @@ JavaScript code to communicate with Firebase and add users to the database.-->
 <!DOCTYPE html>
 <htmL>
   <head>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>-->
 
-      
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
-
-    <script type="text/JavaScript" src="../../Authentication/authentication.js"></script>
-    
-    <script> 
-      window.onload = function() {
-        initApp();
-      };
-    </script>
-
-    <script src ="signup-auth.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="signup.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="signup.css">
   </head>
   
   <body>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+
+    <!--<script type="text/JavaScript" src="../../Authentication/authentication.js"></script>-->
+    <script type="text/JavaScript" src ="can-signup-auth.js"></script>
     <form>
       <div class="container">
         <h1 class="signup" id="text">Candidate Signup</h1>
@@ -36,10 +28,10 @@ JavaScript code to communicate with Firebase and add users to the database.-->
         <label class="password" id="text">Password</label>
         <input type="password" placeholder="Enter password" name="password" id="password" required>
         <label class="password" id="text">Re-Enter Password</label>
-        <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password"  required>
+        <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password" required>
         <div class="enter">
-            <button type="button" class="cancelButton">Cancel</button>
-            <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp(); sendEmailVerification()">
+            <input type="button" class="cancelButton" id=QuitButton value="Quit" onclick="location.href='../../index.html';">
+            <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
         </div>
         <div class="login-route">
             <h3 id="login">Have an account?</h3>

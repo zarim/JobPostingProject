@@ -53,14 +53,29 @@ the company. Also contains JavaScript code to push the user input into Firebase-
             </div>
         </div>
 
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
 
     </body>
 
     <script type="text/javascript">
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };    
+
+        firebase.initializeApp(firebaseConfig);
 
         //initalize the database for the user
         var database = firebase.firestore();

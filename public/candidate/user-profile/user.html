@@ -7,7 +7,6 @@ contains JavaScript code to push the user input into Firebase-->
         <link rel="stylesheet" type="text/css" href="user.css">
     </head>
     <body>
-        <script src="../../database.js"></script>
         <div class="page">
             <div class="menu">
                 <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
@@ -57,19 +56,34 @@ contains JavaScript code to push the user input into Firebase-->
                         <p1 id="looking-for-job">Currently looking for a job</p1>
                     </div>
                     <div class="enter">
-                        <button type="button" class="cancelButton">Quit</button>
+                        <input type="button" class="cancelButton" id=QuitButton value="Quit" onclick="location.href='../../index.html';">
                         <input type="button" class="signupButton" id="SaveButton" value="Save">
                     </div>
                 </div>
             </div>
         </div>
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-storage.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+
     </body>
     <script type="text/javascript">
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };    
+
+        firebase.initializeApp(firebaseConfig);
 
         //initalize the database for the user
         var database = firebase.firestore();
