@@ -29,7 +29,23 @@ Notably, the JavaScript code in our system is not written in such a way that it 
 
 The above tests reflect our current system, namely there is no input validation yet for whether or not a user put in a valid email or a valid password. This is reflected in the tests. Therefore, in the tests, the user inputs that are not valid emails and passwords pass the tests because they would not be kicked back by the system since we do not check for that yet. Note that length of emails and passwords is not a test case since our system already validates for lengths that are too small to be actual emails and passwords (less than 4 characters in the case of our system).
 
-### Table 2: Results of Candidate Profile Unit Tests
+### Table 2: Results of Sign Up Unit Tests for Candidate and Company Users
+
+| **Email Input**               | **Password Input** | **Result** |
+|-------------------------------|--------------------|------------|
+| "lhampto4@scmail.spelman.edu" | "glass1"           | Passed     |
+| "zmcfadde@scmail.spelman.edu" | "glass2"           | Passed     |
+| "jlangham@scmail.spelman.edu" | "glass3"           | Passed     |
+| "uegwim@scmail.spelman.edu"   | "glass4"           | Passed     |
+| "mruffin@scmail.spelman.edu"  | "glass5"           | Passed     |
+| "leliawashere"                | "1998"             | Passed     |
+| "zarirules"                   | 2000               | Passed     |
+| "somebodypleasestopjaida"     | 1998               | Passed     |
+
+The above tests reflect our current system, namely there is no input validation yet for whether or not a user put in a valid email or a valid password. This is reflected in the tests. Therefore, in the tests, the user inputs that are not valid emails and passwords pass the tests because they would not be kicked back by the system since we do not check for that yet. Note that length of emails and passwords is not a test case since our system already validates for lengths that are too small to be actual emails and passwords (less than 4 characters in the case of our system).
+
+
+### Table 3: Results of Candidate Profile Unit Tests
 
 | **Email Input**               | **Phone Number Input** | **Location Input** | **Education Input** | **Website URL Input**    | **Affiliations Input** | **LinkedIn URL Input**              | **JobSearch Input** | **Result** |
 |-------------------------------|------------------------|--------------------|---------------------|--------------------------|------------------------|-------------------------------------|---------------------|------------|
