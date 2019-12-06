@@ -1,0 +1,82 @@
+<!--HTML code for the search page. Currently empty except for the menu.-->
+<!--Zari, Jaida, Lelia-->
+
+<!DOCTYPE html>
+<html lang= "en">
+	
+	<!--Head to reference links to all the good stuff.-->
+    <head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="instantsearch.min.css">
+		<link rel="stylesheet" type="text/css" href="search.css">
+		<script src="instantsearch.min.js"></script> 
+     
+    </head>
+	
+	<!--Body contains all visual page elements.-->
+    <body>
+		<!--Page Menu-->
+        <div class="menu">
+            <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+        </div>
+		
+		<!--Search Box Container-->
+		<div class="searchbox-container">
+			<div class="input-group">
+				<input id="q" type="text" placeholder="Search for Jobs" class="form-control">
+				<span class="input-group-btn">
+					<button class="btn btn-default"><i class="fa fa-search"></i></button>
+				</span>
+			</div>
+		</div>
+		
+		<!--Content Wrapper-->
+		<div class="content-wrapper">
+			<!--Aside for left part of page with refinements-->
+			<aside>
+				<!--Clear All-->
+				<div id="clear-all"></div>
+				
+				<!--Facet wrapper for categories to show-->
+				<section class="facet-wrapper">
+					<div class="facet-category-title" class="facet">Show results for</div>
+					<div id="categories"></div>
+				</section>
+
+				<!--Facet Wrapper for Refinement List-->
+				<section class="facet-wrapper">
+					<div class="facet-category-title">Refine by</div>
+					<div id="company" class="facet"></div>
+					<div id="experience" class="facet"></div>
+					<div id="position" class="facet"></div>
+					<div id="location" class="facet"></div>
+					<div id="salary" class="facet"></div>
+				</section>     
+			</aside> <!--End aside.-->
+
+			<!--Results Wrapper-->
+			<div class="results-wrapper">
+				<section id="results-topbar">
+					<div id="stats" class="text-muted"></div>
+				</section>
+
+				<main id="hits"></main>
+				<section id="pagination"></section>
+			</div> <!--End results-wrapper.-->
+
+		</div> <!--End content-wrapper.-->
+	     
+		<script src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js" async></script>
+		<!--<script src="index.js"></script>-->	<!--Run the index.js script-->
+		<script src="search.js"></script>	<!--Run the search.js script-->
+    </body> <!--End body.-->
+</html> <!--End html doc.-->
