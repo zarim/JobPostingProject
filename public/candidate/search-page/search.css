@@ -384,7 +384,7 @@ aside .facet-color[data-facet-value="White stained oak effect"] {
     clear: both; }
 
 .hit {
-  width: 24%;
+  width: 100%;
   float: left;
   padding: 10px 20px 20px;
   margin-bottom: 10px;
@@ -409,7 +409,7 @@ aside .facet-color[data-facet-value="White stained oak effect"] {
   .hit .experience-level {
     font-size: .8em;
     margin: 0 0 10px;
-    color: #a2a2a2; }
+    color: #000000; }
   .hit .job-type {
 	font-size: 1.1em;
     margin-bottom: 10px; }

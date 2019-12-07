@@ -23,9 +23,9 @@ search.addWidget(
 var hitTemplate =
   '<article class="hit">' +
       '<div class="job-desc-wrapper">' +
-        '<div class="company-name">{{{_highlightResult.CompanyName.value}}}</div>' +
-        '<div class="experience-level">{{{_highlightResult.Experience_Level.value}}}</div>' +
-        '<div class="job-type">{{Job_Type}}</div>' +
+        '<div class="company">{{{_highlightResult.CompanyName.value}}}</div>' +
+        '<div class="experience">{{{_highlightResult.Experience_Level.value}}}</div>' +
+        '<div class="position">{{Job_Type}}</div>' +
 		'<div class="location">{{Location}}</div>' +
 		'<div class="salary">{{Salary}}</div>' +
       '</div>' +
@@ -72,22 +72,27 @@ search.addWidget(
 
 search.addWidget(
 	instantsearch.widgets.refinementList({
-		container:'#company-name',
+		container:'#company',
 		attributeName:'CompanyName',
-		operator:'or',
-		limit:10,
-		cssClasses:{list:'nav nav-list',count:'badge pull-right',active:'active'}
+		//operator:'or',
+		limit: 10,
+		autoHideContainer: false,
+		// cssClasses:{list:'nav nav-list',count:'badge pull-right',active:'active'}
+		templates: {
+		   item: facetTemplateCheckbox,
+		   header: '<div class="facet-title">Company Name</div class="facet-title">'
+		}
 	})
 );
 
 
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: '#experience-level',
+    container: '#experience',
     attributeName: 'Experience_Level',
-    operator: 'or',
+    //operator: 'or',
     limit: 3,
-    searchForFacetValues: true,
+    //searchForFacetValues: true,
     templates: {
       item: facetTemplateCheckbox,
       header: '<div class="facet-title">Experience Level</div class="facet-title">'
@@ -98,11 +103,11 @@ search.addWidget(
 
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: '#job-type',
+    container: '#position',
     attributeName: 'Job_Type',
-    operator: 'or',
+    //operator: 'or',
     limit: 7,
-    searchForFacetValues: true,
+    //searchForFacetValues: true,
     templates: {
       item: facetTemplateCheckbox,
       header: '<div class="facet-title">Job Type</div class="facet-title">'
@@ -115,9 +120,9 @@ search.addWidget(
   instantsearch.widgets.refinementList({
     container: '#location',
     attributeName: 'Location',
-    operator: 'or',
+    //operator: 'or',
     limit: 5,
-    searchForFacetValues: true,
+    //searchForFacetValues: true,
     templates: {
       item: facetTemplateCheckbox,
       header: '<div class="facet-title">Location</div class="facet-title">'
@@ -130,9 +135,9 @@ search.addWidget(
   instantsearch.widgets.refinementList({
     container: '#salary',
     attributeName: 'Salary',
-    operator: 'or',
+    //operator: 'or',
     limit: 5,
-    searchForFacetValues: true,
+    //searchForFacetValues: true,
     templates: {
       item: facetTemplateCheckbox,
       header: '<div class="facet-title">Salary</div class="facet-title">'
