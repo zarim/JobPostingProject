@@ -59,23 +59,37 @@
       const EmailTextField = document.querySelector("#email");
 
 
+//we just need to get their staus and see if it's false
+
       function toggleSignIn() {
-      if (firebase.auth().currentUser) {
+        //NametoSave  
+        const EmailToSave = EmailTextField.value;
+
+        var docRef = database.collection("UserStatus").doc(EmailToSave).where("userStatus", "==", true);
+        /*docRef.get().then(function(doc) {
+            if (doc.exists) {
+                console.log("Document data:", doc.data());
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });*/
+
+        //get the doc ref and see if it's falsexs
+        if (docRef) {
           // [START signout]
 
             //set a variable for signed in to true
             //onClick of the save button add these fields to DB
             LoginButton.addEventListener("click", function () {
 
-              //NametoSave  
-            const EmailToSave = EmailTextField.value;
-            
             //create a collection and document reference for profiles
             const docRef = database.collection("UserStatus").doc(EmailToSave)
 
             docRef.set({
                 userSatus: false,
-                Email: EmailToSave,
                 
             }).then(function(){
                 console.log("User Logged Out");
@@ -87,7 +101,7 @@
             });
             })
 
-          firebase.auth().signOut();
+          //firebase.auth().signOut();
           // [END signout]
         } else {
           var email = document.getElementById('email').value;
@@ -100,10 +114,6 @@
           if (password.length < 4) {
             alert('Please enter a password.');
             return;
-          }
-          //check to see if its in the database
-          if (identif.length < 3){
-            alert('Please enter your Company ID');
           }
           // Sign in with email and pass.
           // [START authwithemail]
@@ -134,7 +144,6 @@
         
             docRef.set({
                 userSatus: true,
-                Email: EmailToSave,
                 
             }).then(function(){
                 console.log("User Logged In");

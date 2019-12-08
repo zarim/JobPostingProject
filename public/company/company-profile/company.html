@@ -146,11 +146,13 @@ the company. Also contains JavaScript code to push the user input into Firebase-
             }).then(function(){
                 console.log("Name Saved");
                 alert("Information Successfuly Saved!");
+                alert("Please sign in.")
             }).catch(function (error) {
                 console.log("Got an error: ", error);
             });
             //navigate to the company landing page
-            top.location.href = "../hiring-landing/landingLoggedIn.html";
+
+            top.location.href = "../signup-login/signup-login.html";
         })
         
     </script> 

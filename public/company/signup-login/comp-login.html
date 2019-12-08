@@ -84,8 +84,11 @@
             docRef.set({
                 userSatus: false,
                 Email: EmailToSave,
-                CompID: CompIDtoSave
-                
+            })
+
+            database.collection("CompStatus").doc(EmailToSave).collection("IDs").add({
+              CompID: CompIDtoSave
+              
             }).then(function(){
                 console.log("User Logged Out");
                 alert("Successfully Logged Out")
@@ -145,8 +148,12 @@
             docRef.set({
                 userSatus: true,
                 Email: EmailToSave,
-                CompID: CompIDtoSave
-                
+                //CompID: CompIDtoSave
+            })
+
+            database.collection("CompStatus").doc(EmailToSave).collection("IDs").add({
+              CompID: CompIDtoSave
+
             }).then(function(){
                 console.log("User Logged In");
                 alert("Successfully Logged In")
