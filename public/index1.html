@@ -19,6 +19,19 @@
         
         </div>
         <div class="main-container">
+                <div class="form-popup" id="myForm">
+                        <form action="/action_page.php" class="form-container">
+                            <h1>Login</h1>
+                        
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Email" name="email" >
+                        
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Password" name="psw" >
+                        
+                            <button type="submit" class="btn">Login</button>
+                            <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+                            
                 <div class="title"><h2 id="title">You Are...</h2></div>
                 <div class="buttons">
                     <span tabindex="-1"><input type="button" id="looking-button" onclick="location.href='candidate/search-page/search.html'" value="LOOKING"/></span>

@@ -71,8 +71,11 @@ function companyCheck(){
 
   compRef.get().then(function(doc) {
     if (doc.exists) {
-        console.log("Document data:", doc.data());
-        alert("Your Company already exsist within our system. Your Company ID is, " )
+        
+        console.log("Document data:", doc.CompID, " => ", doc.data());
+        alert("Your Company already exsist within our system. Your Company ID is, " + doc.CompID)
+        //redirect to landing page where their logged in
+        top.location.href = "../hiring-landing/landingLoggedIn.html"; 
 
     } else{
 
@@ -92,7 +95,6 @@ function companyCheck(){
 
 
 
-  
 function sendPasswordReset() {
   var email = document.getElementById('email').value;
   // [START sendpasswordemail]

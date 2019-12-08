@@ -58,10 +58,6 @@
       const EmailHeader = document.querySelector("#text");
       const EmailTextField = document.querySelector("#email");
 
-      //Company ID
-      const CompIDHeader = document.querySelector("#text");
-      const CompIDTextField = document.querySelector("#companyID")
-
 
       function toggleSignIn() {
       if (firebase.auth().currentUser) {
@@ -73,15 +69,13 @@
 
               //NametoSave  
             const EmailToSave = EmailTextField.value;
-            const CompIDtoSave = CompIDTextField.value;
-
+            
             //create a collection and document reference for profiles
             const docRef = database.collection("UserStatus").doc(EmailToSave)
 
             docRef.set({
                 userSatus: false,
                 Email: EmailToSave,
-                CompID: CompIDtoSave
                 
             }).then(function(){
                 console.log("User Logged Out");
@@ -98,7 +92,7 @@
         } else {
           var email = document.getElementById('email').value;
           var password = document.getElementById('password').value;
-          var identif = document.getElementById('companyID').value;
+
           if (email.length < 4) {
             alert('Please enter an email address.');
             return;
@@ -134,7 +128,6 @@
 
             //NametoSave  
             const EmailToSave = EmailTextField.value;
-            const CompIDtoSave = CompIDTextField.value;  
             
             //create a collection and document reference for profiles
             const docRef = database.collection("UserStatus").doc(EmailToSave)
@@ -142,7 +135,6 @@
             docRef.set({
                 userSatus: true,
                 Email: EmailToSave,
-                CompID: CompIDtoSave
                 
             }).then(function(){
                 console.log("User Logged In");
