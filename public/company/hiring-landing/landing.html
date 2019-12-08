@@ -20,7 +20,7 @@
             <div class="title"><h2 id="title">I Want To...</h2></div>
             <div class="buttons">
                 <span tabindex="-1"><input type="button" id="looking-button" onclick="location.href='../candidate-results/candidate-results.html'" value="LOOK FOR CANDIDATES"/></span>
-                <span tabindex="-1"><input type="button" id="hiring-button" onclick="CheckStatus();" value="POST A JOB"/></span>
+                <span tabindex="-1"><input type="button" id="hiring-button" onclick=CheckStatus();  value="POST A JOB"/></span>
             </div>
         </div>
 
@@ -33,44 +33,64 @@
 
     <script type="text/javascript">
 
-    function CheckStatus(){
+    /*function CheckStatus(){
 
-        const firebaseConfig = {
-          apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
-          authDomain: "glassceilingswe.firebaseapp.com",
-          databaseURL: "https://glassceilingswe.firebaseio.com",
-          projectId: "glassceilingswe",
-          storageBucket: "glassceilingswe.appspot.com",
-          messagingSenderId: "318857051230",
-          appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
-          measurementId: "G-LEHC8NNE1X"
-        };    
-        firebase.initializeApp(firebaseConfig);
+    docRef = database.collection("CompStatus").doc("EmailtoSave").where("Email", "==", EmailtoSave).where("CompStatus", "==", true);
 
-        //initalize the database for the user
-        var database = firebase.firestore();
+    if(docRef == true){
 
-
-        docRef = database.collection("CompStatus").doc("EmailtoSave").where("userStatus", "==", true);
-
-        
-
-        /*docRef.get().then(function(doc) {
-            if (userStatus == true) {
-                //redirect to page
-                location.href='../add-job-role/job.html'
-
-                console.log("Document data:", doc.data());
-            } else {
-            // doc.data() will be undefined in this case
-            console.log("Not Logged In!");
-            }
-            }).catch(function(error) {
-                console.log("Error getting document:", error);
-        });
-
+      top.location.href = "../add-job-role/job.html";
+    }else {
+      console.log("Not Logged In");
+      alert("You are not Logged In")
     }*/
 
-</script>
+
+        function CheckStatus(){
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        //figure out how to locate and pull from DB and see if status is true or false
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                top.location.href = "../add-job-role/job.html";
+            } else {
+                // No user is signed in.
+                console.log("Not Logged In");
+                alert("You are not Logged In")
+            }
+        });
+    }
+        
+
+            /*docRef.get().then(function(doc) {
+                if (userStatus == true) {
+                    //redirect to page
+                    location.href='../add-job-role/job.html'
+
+                    console.log("Document data:", doc.data());
+                } else {
+                // doc.data() will be undefined in this case
+                console.log("Not Logged In!");
+                }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+            });
+
+        }*/
+
+    </script>
 
 </html>

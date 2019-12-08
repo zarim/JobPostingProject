@@ -11,44 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db  = firebase.firestore();
 
-/* Handles the sign in button press.
-  */
- function toggleSignIn() {
-  if (firebase.auth().currentUser) {
-    // [START signout]
-    firebase.auth().signOut();
-    // [END signout]
-  } else {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    if (email.length < 4) {
-      alert('Please enter an email address.');
-      return;
-    }
-    if (password.length < 4) {
-      alert('Please enter a password.');
-      return;
-    }
-    // Sign in with email and pass.
-    // [START authwithemail]
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // [START_EXCLUDE]
-      if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
-      } else {
-        alert(errorMessage);
-      }
-      console.log(error);
-      document.getElementById('quickstart-sign-in').disabled = false;
-      // [END_EXCLUDE]
-    });
-    // [END authwithemail]
-  }
-  document.getElementById('quickstart-sign-in').disabled = true;
-}
+ 
 /**
  * Handles the sign up button press.
  */
@@ -90,14 +53,46 @@ function sendEmailVerification() {
     // Email Verification sent!
     // [START_EXCLUDE]
     alert('Email Verification Sent!');
-    top.location.href = "../company-profile/company.html"; 
+
+    companyCheck();
+    
 
     // [END_EXCLUDE]
   });
   // [END sendemailverification]
 }
 
+// this is where we check to see if the company is already in the system
+function companyCheck(){
 
+  var compName = document.getElementById('company').value;
+
+  var compRef = db.collection("CompanyProfiles").doc(compName);
+
+  compRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+        alert("Your Company already exsist within our system. Your Company ID is, " )
+
+    } else{
+
+      var CompID = Math.round(Math.random() * 3000)
+      console.log(CompID);
+  
+      alert('WRITE THIS DOWN, Your Company ID is ' + CompID );
+      top.location.href = "../company-profile/company.html"; 
+
+      }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+
+    
+  }
+
+
+
+  
 function sendPasswordReset() {
   var email = document.getElementById('email').value;
   // [START sendpasswordemail]

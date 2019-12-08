@@ -29,6 +29,10 @@ the company. Also contains JavaScript code to push the user input into Firebase-
                     <div class="middle">
                         <label class="user-name" id="right-text">Company Name</label>
                         <input type="text" placeholder="Enter company name" name="company" id="company" required>
+
+                        <label class="user-name" id="right-text">Company ID</label>
+                        <input type="text" placeholder="Enter Given Company ID" name="ID" id="companyID" required>
+
                         <label class="user-name" id="right-text">Company History</label>
                         <input type="text" placeholder="Enter history about the company" name="history" id="history-right-input" required>
                     </div>
@@ -45,8 +49,8 @@ the company. Also contains JavaScript code to push the user input into Firebase-
                     <label class="user-name" id="right-text">Fun Facts</label>
                     <input type="text" placeholder="Enter fun facts about the company" name="facts" id="facts-right-input" required>
                     <div class="enter">
-                        <button type="button" class="cancelButton">Quit</button>
-                        <input type="button" class="signupButton" id="SaveButton" value="Save">
+                        <input type="button" class="cancelButton" id="QuitButton" value="Quit" onclick="location.href='../../index.html';">
+                        <input type="button" class="saveButton" id="SaveButton" value="Save">
                         
                     </div>
                 </div>
@@ -84,6 +88,10 @@ the company. Also contains JavaScript code to push the user input into Firebase-
         const NameHeader = document.querySelector("#right-text");
         const NameTextField = document.querySelector("#company");
 
+        //Company Name
+        const IDHeader = document.querySelector("#right-text");
+        const IDTextField = document.querySelector("#companyID");
+
         //Company History
         const HistoryHeader = document.querySelector("#right-text");
         const HistoryTextField = document.querySelector("#history-right-input");
@@ -106,6 +114,9 @@ the company. Also contains JavaScript code to push the user input into Firebase-
             //NametoSave  
             const NameToSave = NameTextField.value;
 
+            //IDtoSave
+            const IDToSave = IDTextField.value;
+
             //HistorytoSave
             const HistoryToSave = HistoryTextField.value;
 
@@ -117,6 +128,8 @@ the company. Also contains JavaScript code to push the user input into Firebase-
 
             //FactstoSave
             const FactsToSave = FactHeaderField.value;
+
+
             console.log("I am going to save data to Firestore")
 
             //figure out how to create a new doc for each User Profile
@@ -125,6 +138,7 @@ the company. Also contains JavaScript code to push the user input into Firebase-
 
             docRef.set({
                 CompanyName: NameToSave,
+                CompID: IDToSave,
                 CompanyHistory: HistoryToSave,
                 CompanyDNI: DNIToSave,
                 Benefits: BenefitsToSave,
@@ -135,10 +149,10 @@ the company. Also contains JavaScript code to push the user input into Firebase-
             }).catch(function (error) {
                 console.log("Got an error: ", error);
             });
-        //navigate to the company landing page
-        top.location.href = "../hiring-landing/landing.html";
+            //navigate to the company landing page
+            top.location.href = "../hiring-landing/landingLoggedIn.html";
         })
         
-
     </script> 
-</html>
+</html> 
+

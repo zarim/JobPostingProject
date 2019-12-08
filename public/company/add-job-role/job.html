@@ -15,7 +15,9 @@
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
-                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+                <!--<span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>-->
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>
+
             </div>
             <div class="company-header">
                 <h2 id="company-header">Add Job Role</h2>
@@ -45,7 +47,7 @@
                     <label class="user-name" id="right-text">Description and Responsibilities</label>
                     <input type="text" placeholder="Enter job description and responsibilities" name="facts" id="description" required>
                     <div class="enter">
-                        <button type="button" class="cancelButton">Quit</button>
+                            <input type="button" class="cancelButton" id=QuitButton value="Quit" onclick="location.href='../hiring-landing/landingLoggedIn.html';">
                         <input type="button" class="addJobButton" id="SaveButton" value="Add Job">
                     </div>
                 </div>

@@ -17,8 +17,9 @@
           <label class="password" id="text">Password</label>
           <input type="password" placeholder="Enter password" name="password" id="password" required>
           <div class="enter">
-            <button type="button" class="cancelButton">Cancel</button>
-            <input type="button" class="loginButton" value="Login" onclick=toggleSignIn()>    
+            <!--<button type="button" class="cancelButton">Cancel</button>-->
+            <input type="button" class="cancelButton" id=QuitButton value="Cancel" onclick="location.href='../../index.html';">
+            <input type="button" class="loginButton" value="Login" id="LoginButton" onclick=toggleSignIn();>    
           </div>
           <div class="signup-route">
             <h3 id="signup">Don't have an account?</h3>
@@ -33,5 +34,130 @@
     <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
   </body>
+
+  <script type="text/javascript"> 
+
+    const firebaseConfig = {
+              apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+              authDomain: "glassceilingswe.firebaseapp.com",
+              databaseURL: "https://glassceilingswe.firebaseio.com",
+              projectId: "glassceilingswe",
+              storageBucket: "glassceilingswe.appspot.com",
+              messagingSenderId: "318857051230",
+              appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+              measurementId: "G-LEHC8NNE1X"
+          };    
+
+      firebase.initializeApp(firebaseConfig);
+
+      //initalize the database for the user
+      var database = firebase.firestore();
+
+
+      // Email
+      const EmailHeader = document.querySelector("#text");
+      const EmailTextField = document.querySelector("#email");
+
+      //Company ID
+      const CompIDHeader = document.querySelector("#text");
+      const CompIDTextField = document.querySelector("#companyID")
+
+
+      function toggleSignIn() {
+      if (firebase.auth().currentUser) {
+          // [START signout]
+
+            //set a variable for signed in to true
+            //onClick of the save button add these fields to DB
+            LoginButton.addEventListener("click", function () {
+
+              //NametoSave  
+            const EmailToSave = EmailTextField.value;
+            const CompIDtoSave = CompIDTextField.value;
+
+            //create a collection and document reference for profiles
+            const docRef = database.collection("UserStatus").doc(EmailToSave)
+
+            docRef.set({
+                userSatus: false,
+                Email: EmailToSave,
+                CompID: CompIDtoSave
+                
+            }).then(function(){
+                console.log("User Logged Out");
+                alert("Successfully Logged Out")
+                //navigate to the company landing page w/o login icon
+                top.location.href = "../../index.html";
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+            })
+
+          firebase.auth().signOut();
+          // [END signout]
+        } else {
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+          var identif = document.getElementById('companyID').value;
+          if (email.length < 4) {
+            alert('Please enter an email address.');
+            return;
+          }
+          if (password.length < 4) {
+            alert('Please enter a password.');
+            return;
+          }
+          //check to see if its in the database
+          if (identif.length < 3){
+            alert('Please enter your Company ID');
+          }
+          // Sign in with email and pass.
+          // [START authwithemail]
+          firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // [START_EXCLUDE]
+            if (errorCode === 'auth/wrong-password') {
+              alert('Wrong password.');
+            } else {
+              alert(errorMessage);
+            }
+            console.log(error);
+
+        });
+
+            //set a variable for signed in to true
+            //onClick of the save button add these fields to DB
+            LoginButton.addEventListener("click", function () {
+
+            //NametoSave  
+            const EmailToSave = EmailTextField.value;
+            const CompIDtoSave = CompIDTextField.value;  
+            
+            //create a collection and document reference for profiles
+            const docRef = database.collection("UserStatus").doc(EmailToSave)
+        
+            docRef.set({
+                userSatus: true,
+                Email: EmailToSave,
+                CompID: CompIDtoSave
+                
+            }).then(function(){
+                console.log("User Logged In");
+                alert("Successfully Logged In")
+                //navigate to the company landing page w/ login icon
+                top.location.href = "../../index1.html";
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+        })
+
+      }
+
+  }
+
+  </script>
  
 </htmL>
