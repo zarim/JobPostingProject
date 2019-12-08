@@ -1,14 +1,14 @@
 var search = instantsearch({
   appId: '06N5B5F9IF',
   apiKey: 'a0deab13d94f6b03e80de5ae6270d577',
-  indexName: 'jobs',
+  indexName: 'candidates',
   routing:true
 });
 
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#q',
-	placeholder: 'Search For Jobs',
+	placeholder: 'Search For Candidates',
 	searchAsYouType: true,
 	showLoadingIndicator: true
   })
@@ -22,12 +22,13 @@ search.addWidget(
 	
 var hitTemplate =
   '<article class="hit">' +
-      '<div class="job-desc-wrapper">' +
-        '<div class="company-name">{{{_highlightResult.CompanyName.value}}}</div>' +
-        '<div class="experience-level">{{{_highlightResult.Experience_Level.value}}}</div>' +
-        '<div class="job-type">{{Job_Type}}</div>' +
+	  '<div class="candidate-picture-wrapper">' +
+        '<div class="candidate-picture"><img src="{{image}}" /></div>' +
+      '</div>' +
+      '<div class="candidate-desc-wrapper">' +
+        '<div class="candidate-name">{{{CandidateName}}}</div>' +
+        '<div class="skills">{{{Skills}}}</div>' +
 		'<div class="location">{{Location}}</div>' +
-		'<div class="salary">{{Salary}}</div>' +
       '</div>' +
   '</article>';
 
@@ -71,71 +72,27 @@ search.addWidget(
 
 
 search.addWidget(
-	instantsearch.widgets.refinementList({
-		container:'#company-name',
-		attributeName:'CompanyName',
-		operator:'or',
-		limit:10,
-		cssClasses:{list:'nav nav-list',count:'badge pull-right',active:'active'}
-	})
-);
-
-
-search.addWidget(
   instantsearch.widgets.refinementList({
-    container: '#experience-level',
-    attributeName: 'Experience_Level',
-    operator: 'or',
-    limit: 3,
-    searchForFacetValues: true,
+    container: '#skills',
+    attributeName: 'Skills',
+	limit: 10,
     templates: {
       item: facetTemplateCheckbox,
-      header: '<div class="facet-title">Experience Level</div class="facet-title">'
+      header: '<div class="facet-title">Skills</div class="facet-title">'
     }
   })
 );
 
-
-search.addWidget(
-  instantsearch.widgets.refinementList({
-    container: '#job-type',
-    attributeName: 'Job_Type',
-    operator: 'or',
-    limit: 7,
-    searchForFacetValues: true,
-    templates: {
-      item: facetTemplateCheckbox,
-      header: '<div class="facet-title">Job Type</div class="facet-title">'
-    }
-  })
-);
 
 
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: '#location',
     attributeName: 'Location',
-    operator: 'or',
     limit: 5,
-    searchForFacetValues: true,
     templates: {
       item: facetTemplateCheckbox,
       header: '<div class="facet-title">Location</div class="facet-title">'
-    }
-  })
-);
-
-
-search.addWidget(
-  instantsearch.widgets.refinementList({
-    container: '#salary',
-    attributeName: 'Salary',
-    operator: 'or',
-    limit: 5,
-    searchForFacetValues: true,
-    templates: {
-      item: facetTemplateCheckbox,
-      header: '<div class="facet-title">Salary</div class="facet-title">'
     }
   })
 );

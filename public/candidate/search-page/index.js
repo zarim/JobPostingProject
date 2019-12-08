@@ -1,3 +1,64 @@
+const algoliasearch = require('algoliasearch');
+const dotenv = require('dotenv');
+const firebase = require('firebase');
+
+// load values from the .env file in this directory into process.env
+dotenv.config();
+
+// configure firebase
+firebase.initializeApp({
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+});
+const database = firebase.database();
+
+// configure algolia
+const algolia = algoliasearch(
+  process.env.ALGOLIA_APP_ID,
+  process.env.ALGOLIA_API_KEY
+);
+const index = algolia.initIndex(process.env.ALGOLIA_INDEX_NAME);
+
+
+// Synchronize automatically
+// Get all jobs from Firebase
+const jobsRef = database.ref('/Job-Posts');
+jobsRef.on('child_added', addOrUpdateIndexRecord);
+jobsRef.on('child_changed', addOrUpdateIndexRecord);
+jobsRef.on('child_removed', deleteIndexRecord);
+
+function addOrUpdateIndexRecord(job) {
+  // Get Firebase object
+  const record = job.val();
+  // Specify Algolia's objectID using the Firebase object key
+  record.objectID = job.key;
+  // Add or update object
+  index
+    .saveObject(record)
+    .then(() => {
+      console.log('Firebase object indexed in Algolia', record.objectID);
+    })
+    .catch(error => {
+      console.error('Error when indexing job into Algolia', error);
+      process.exit(1);
+    });
+}
+
+function deleteIndexRecord({key}) {
+  // Get Algolia's objectID from the Firebase object key
+  const objectID = key;
+  // Remove the object from Algolia
+  index
+    .deleteObject(objectID)
+    .then(() => {
+      console.log('Firebase object deleted from Algolia', objectID);
+    })
+    .catch(error => {
+      console.error('Error when deleting job from Algolia', error);
+      process.exit(1);
+    });
+}
+
+/*
 // Import all needed modules.
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
@@ -13,7 +74,7 @@ const algoliaClient = algoliasearch(functions.config().algolia.appid, functions.
 // Since I'm using develop and production environments, I'm automatically defining 
 // the index name according to which environment is running. functions.config().projectId is a default 
 // property set by Cloud Functions.
-const collectionIndexName = functions.config().projectId === 'GlassCeilingSWE' ? 'candidates';
+const collectionIndexName = functions.config().projectId === 'GlassCeilingSWE' ? 'jobs';
 const collectionIndex = algoliaClient.initIndex(collectionIndexName);
 
 // Create a HTTP request cloud function.
@@ -25,7 +86,7 @@ export const sendCollectionToAlgolia = functions.https.onRequest(async (req, res
 	const algoliaRecords : any[] = [];
 
 	// Retrieve all documents from the COLLECTION collection.
-	const querySnapshot = await db.collection('candidate-card').get();
+	const querySnapshot = await db.collection('Job-Posts').get();
 
 	querySnapshot.docs.forEach(doc => {
 		const document = doc.data();
@@ -33,10 +94,11 @@ export const sendCollectionToAlgolia = functions.https.onRequest(async (req, res
         // display, filtering, or relevance. Otherwise, you can leave it out.
         const record = {
             objectID: doc.id,
-            CandidateName: document.CandidateName,
-			Skills: document.Skills,
+            CompanyName: document.CompanyName,
+			Experience_Level: document.Experience_Level,
 			Job_Type: document.Job_Type,
-			Location: document.Location
+			Location: document.Location,
+			Salary: document.Salary
         };
 
         algoliaRecords.push(record);
@@ -49,15 +111,15 @@ export const sendCollectionToAlgolia = functions.https.onRequest(async (req, res
 	
 })
 
-export const collectionOnCreate = functions.firestore.document('candidate-card/{uid}').onCreate(async (snapshot, context) => {
+export const collectionOnCreate = functions.firestore.document('Job-Posts/{uid}').onCreate(async (snapshot, context) => {
     await saveDocumentInAlgolia(snapshot);
 });
 
-export const collectionOnUpdate = functions.firestore.document('candidate-card/{uid}').onUpdate(async (change, context) => {
+export const collectionOnUpdate = functions.firestore.document('Job-Posts/{uid}').onUpdate(async (change, context) => {
     await updateDocumentInAlgolia(change);
 });
 
-export const collectionOnDelete = functions.firestore.document('candidate-card/{uid}').onDelete(async (snapshot, context) => {
+export const collectionOnDelete = functions.firestore.document('Job-Posts/{uid}').onDelete(async (snapshot, context) => {
     await deleteDocumentFromAlgolia(snapshot);
 });
 
@@ -99,3 +161,4 @@ async function deleteDocumentFromAlgolia(snapshot: FirebaseFirestore.DocumentSna
         await collectionIndex.deleteObject(objectID);
     }
 }
+*/
