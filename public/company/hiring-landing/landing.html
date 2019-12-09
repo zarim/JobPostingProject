@@ -32,22 +32,6 @@
     </body>
 
     <script type="text/javascript">
-
-    /*function CheckStatus(){
-
-    docRef = database.collection("CompStatus").doc("EmailtoSave").where("Email", "==", EmailtoSave).where("CompStatus", "==", true);
-
-    if(docRef == true){
-
-      top.location.href = "../add-job-role/job.html";
-    }else {
-      console.log("Not Logged In");
-      alert("You are not Logged In")
-    }*/
-
-
-        function CheckStatus(){
-
         const firebaseConfig = {
             apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
             authDomain: "glassceilingswe.firebaseapp.com",
@@ -60,10 +44,10 @@
         };
         firebase.initializeApp(firebaseConfig);
 
-        //figure out how to locate and pull from DB and see if status is true or false
+    function CheckStatus(){
 
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
+        var user = firebase.auth().currentUser;
+        if (user) {
                 // User is signed in.
                 top.location.href = "../add-job-role/job.html";
             } else {
@@ -71,25 +55,15 @@
                 console.log("Not Logged In");
                 alert("You are not Logged In")
             }
-        });
+
+    
+        //figure out how to locate and pull from DB and see if status is true or false
+
+        //firebase.auth().onAuthStateChanged(function(user) {
+            
+        //});
     }
-        
 
-            /*docRef.get().then(function(doc) {
-                if (userStatus == true) {
-                    //redirect to page
-                    location.href='../add-job-role/job.html'
-
-                    console.log("Document data:", doc.data());
-                } else {
-                // doc.data() will be undefined in this case
-                console.log("Not Logged In!");
-                }
-                }).catch(function(error) {
-                    console.log("Error getting document:", error);
-            });
-
-        }*/
 
     </script>
 

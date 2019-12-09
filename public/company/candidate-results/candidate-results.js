@@ -33,3 +33,7 @@ function populateCandidates() {
         });
     });
 }
+
+function navigate() {
+    top.location.href="../expanded-candidate-results/expanded-candidates.html";
+}

@@ -69,7 +69,7 @@
 
         var query = docRef.where("doc", "==", EmailToSave).where("userStatus", "==", true).get();
 
-        //get the doc ref and see if it's falsexs
+        //get the doc ref and see if it's false
         if (docRef.length == 0) {
           // [START signout]
 

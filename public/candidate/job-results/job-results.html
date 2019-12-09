@@ -8,6 +8,7 @@
         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
         <script src="job-results.js"></script>
+        <script src="../expanded-jobs.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="job-results.css">
     </head>
@@ -35,10 +36,10 @@
             <div class="bottom">
                 <div id="card"></div>
                 <div id="job-card" class="card">
-                    <div class="left">
+                    <div class="left" onclick="navigate()">
                         <div class="circle-cropper"></div>
                     </div>
-                    <div class="right">
+                    <div class="right" onclick="navigate()">
                         <h3 id="card-header">Role</h3>
                         <div class="role" id="role">{{role}}</div>
                         <h3 id="card-header">Company</h3>
