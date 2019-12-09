@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 var db  = firebase.firestore();
 
 function getData() {
-    db.collection("add-job-role").onSnapshot(function(doc) {
+    db.collection("UserProfiles").onSnapshot(function(doc) {
         window.key = doc.docs[0].id;
     });
 }
@@ -25,14 +25,14 @@ function openTab(tabName) {
       x[i].style.display = "none";
     }
     document.getElementById(tabName).style.display = "block";
-    window.ref = db.collection("add-job-role").doc(window.key);
+    window.ref = db.collection("UserProfiles").doc(window.key);
 }
 
 function assignKey(i, id) {
     x = document.getElementsByClassName("side-result");
     x[i].setAttribute('index', id);
     window.key = x[i].getAttribute('index');
-    window.ref = db.collection("add-job-role").doc(window.key);
+    window.ref = db.collection("UserProfiles").doc(window.key);
 }
 
 function getKey(i) {
@@ -44,7 +44,7 @@ function getId(event) {
     var x = document.getElementsByClassName("side-result");
     var ids = new Array();
     
-    const candidateSnapshot = db.collection("add-job-role").get();
+    const candidateSnapshot = db.collection("UserProfiles").get();
     candidateSnapshot.then(function(snap) {
         snap.forEach(function(doc) {
             ids.push(doc.id);
@@ -56,7 +56,7 @@ function getId(event) {
             x[j].onclick = function(){
                 assignKey(index, ids[index-1], event);
                 window.key = getKey(index);
-                window.ref = db.collection("add-job-role").doc(window.key);
+                window.ref = db.collection("UserProfiles").doc(window.key);
             }
         })(j);
     }
@@ -69,11 +69,11 @@ function populateResults() {
     var theScriptHTML = document.getElementById("side-result").innerHTML;
     var theTemplate = Handlebars.compile(theScriptHTML);
 
-    const candidateSnapshot = db.collection("add-job-role").get();
+    const candidateSnapshot = db.collection("UserProfiles").get();
     candidateSnapshot.then(function(snap) {
         snap.forEach(function(doc) {
             ids.push(doc.id);
-            context = {"role" : doc.data().role, "company" : doc.data().company, "location" : doc.data().location};
+            context = {"name" : doc.data().userName, "education" : doc.data().Education, "location" : doc.data().Location};
             compileData = theTemplate(context);
             var template = document.createElement("div");
             template.setAttribute("id", "side-result");
@@ -100,13 +100,14 @@ function underLine(element) {
 }
 
 function fillDescription() {
-    window.ref = db.collection("add-job-role").doc(window.key).get();
+    window.ref = db.collection("UserProfiles").doc(window.key).get();
     window.ref.then(function(doc) {
-        document.getElementById("job").textContent = doc.data().description;
-        document.getElementById("comp").textContent = doc.data().company;
-        document.getElementById("salary").textContent = doc.data().salaryRange;
-        document.getElementById("diversity").textContent = doc.data().diversity;
-        //document.getElementById("reviews").textContent = doc.data().reviews;
-        document.getElementById("benefits").textContent = doc.data().benefits;
+        document.getElementById("name1").textContent = doc.data().userName;
+        document.getElementById("location1").textContent = doc.data().Location;
+        document.getElementById("education1").textContent = doc.data().Education;
+        document.getElementById("website").textContent = doc.data().Website_URL;
+        document.getElementById("email").textContent = doc.data().Email;
+        document.getElementById("organizations").textContent = doc.data().Affiliations;
+        document.getElementById("linkedin").textContent = doc.data().LinkedIn_URL;
     });
 }

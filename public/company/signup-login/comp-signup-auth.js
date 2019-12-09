@@ -92,7 +92,7 @@ function companyCheck(){
         //redirect to landing page where their logged in
         top.location.href = "../hiring-landing/landingLoggedIn.html"; 
 
-    } else{
+    } else {
 
       var CompID = Math.round(Math.random() * 3000)
       console.log(CompID);

@@ -52,7 +52,9 @@
                     </div>
                 </div>
                 <div class="description-side">
-                    <div class="description-image"></div>
+                    <div class="description-image">
+                        <!--<div class="title" id="company1">{{company}}</div>-->
+                    </div>
                     <div class="description-text">
                         <div class="content-menu ">
                             <span class="c" onclick="openTab('job'); fillDescription();" tabindex="-1" id="description-menu-item"><h2 id="description-menu-item" onclick="underLine(this.parentElement)">Job</h2></span>
@@ -64,27 +66,21 @@
                         </div>
                         <div class="content">
                             <div id="job" class="containerTab">
-                                <p>job info</p>
                                 <div class="content-job" id="content-job">{{job}}</div>
                             </div>
                             <div id="comp" class="containerTab">
-                                <p>company info</p>
                                 <div class="content-company" id="content-company">{{comp}}</div>
                             </div>
                             <div id="salary" class="containerTab">
-                                <p>salary info</p>
                                 <div class="content-salary" id="content-salary">{{salary}}</div>
                             </div>
                             <div id="diversity" class="containerTab">
-                                <p>diversity info</p>
                                 <div class="content-diversity" id="content-diversity">{{diversity}}</div>
                             </div>
                             <div id="reviews" class="containerTab">
-                                <p>reviews info</p>
-                                <div class="content-reviews" id="content-reviews">{{reviews}}</div>
+                                <div class="content-reviews" id="content-reviews"><img src="coming-soon.png"></div>
                             </div>
                             <div id="benefits" class="containerTab">
-                                <p>benefits info</p>
                                 <div class="content-benefits" id="content-benefits">{{benefits}}</div>
                             </div>
                         </div>

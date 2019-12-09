@@ -1,0 +1,82 @@
+<!--HTML code for the job results page.-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+        <script src="expanded-candidates.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="expanded-candidates.css">
+    </head>
+    <body onload="populateResults();">
+        <script>
+            getData();
+        </script>
+        <div class="menu">
+            <h1 id="header"><input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+        </div>
+        <div class="main-container">
+            <div class="top">
+                <div class="search-box">
+                    <input id="search" type="text" name="" placeholder="Type to Search">
+                </div>
+                <!--
+                <div class="filter-box">
+                    <button id="filter">Filter</button>
+                </div>
+                -->
+            </div>
+            <div class="bottom">
+                <div onclick="getId(); fillDescription();" index="assignId();" id="results-side" class="results-side">
+                    <div class="side-result" id="side-result">
+                        <div class="left">
+                            <div class="circle-cropper"></div>
+                        </div>
+                        <div class="right">
+                            <h3 id="card-header">Name</h3>
+                            <div class="name" id="name">{{name}}</div>
+                            <h3 id="card-header">Education</h3>
+                            <div class="education" id="education">{{education}}</div>
+                            <h3 id="card-header">Location</h3>
+                            <div class="location" id="location">{{location}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="fillDescription();" class="description-side">
+                    <div class="description-image">
+                        <!--<div class="title" id="company1">{{company}}</div>-->
+                    </div>
+                    <div class="description-text">
+                        <div class="description-left">
+                            <h3 id="text">Name</h3>
+                            <div class="name" id="name1">{{name}}</div>
+                            <h3 id="text">Location</h3>
+                            <div class="location" id="location1">{{location}}</div>
+                            <h3 id="text">Education</h3>
+                            <div class="education" id="education1">{{education}}</div>
+                            <h3 id="text">Github/Website</h3>
+                            <div class="website" id="website">{{website}}</div>
+                        </div>
+                        <div class="description-right">
+                            <h3 id="text">Email</h3>
+                            <div class="email" id="email">{{email}}</div>
+                            <h3 id="text">Organizations</h3>
+                            <div class="organizations" id="organizations">{{organizations}}</div>
+                            <h3 id="text">LinkedIn</h3>
+                            <div class="linkedin" id="linkedin">{{linkedin}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
