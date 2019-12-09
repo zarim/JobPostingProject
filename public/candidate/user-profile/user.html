@@ -7,7 +7,6 @@ contains JavaScript code to push the user input into Firebase-->
         <link rel="stylesheet" type="text/css" href="user.css">
     </head>
     <body>
-        <script src="../../database.js"></script>
         <div class="page">
             <div class="menu">
                 <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
@@ -17,6 +16,7 @@ contains JavaScript code to push the user input into Firebase-->
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+                <!--<span tabindex="-1" id="menu-item"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>-->
             </div>
             <div class="user-header">
                 <h2 id="user-header">User Profile</h2>
@@ -57,23 +57,34 @@ contains JavaScript code to push the user input into Firebase-->
                         <p1 id="looking-for-job">Currently looking for a job</p1>
                     </div>
                     <div class="enter">
-                        <button type="button" class="cancelButton">Quit</button>
+                        <input type="button" class="cancelButton" id="QuitButton" value="Quit" onclick="location.href='../../index.html';">
                         <input type="button" class="signupButton" id="SaveButton" value="Save">
                     </div>
                 </div>
             </div>
         </div>
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-storage.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+
     </body>
     <script type="text/javascript">
-
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };    
+        firebase.initializeApp(firebaseConfig);
         //initalize the database for the user
         var database = firebase.firestore();
-
         // Name
         const NameHeader = document.querySelector("#text");
         const NameTextField = document.querySelector("#name-top-input");
@@ -98,11 +109,9 @@ contains JavaScript code to push the user input into Firebase-->
         // LinkedIn
         const LinkedHeader = document.querySelector("#right-text");
         const LinkedTextField = document.querySelector("#linkedin-input")
-
         // JobSearch
         const JobSearcButton = document.querySelector("#job-input");
         const SaveButton = document.querySelector("#SaveButton");
-
       //onClick of the save button add these fields to DB
         SaveButton.addEventListener("click", function () {
             //NametoSave  
@@ -127,7 +136,7 @@ contains JavaScript code to push the user input into Firebase-->
             console.log("I am going to save data to Firestore")
             
             //create a collection and document reference for profiles
-            const docRef = database.collection("UserProfiles").doc(EmailToSave)
+            const docRef = database.collection("UserProfiles").doc(EmailToSave);
         
             docRef.set({
                 userName: NameToSave,
@@ -139,38 +148,40 @@ contains JavaScript code to push the user input into Firebase-->
                 Affiliations: AffilToSave,
                 LinkedIn_URL: LinkedToSave,
                 JobSearch: true
+
+            })
+                //create a collection and document reference for profiles
+            const docRef2 = database.collection("UserStatus").doc(EmailToSave)
+
+            docRef2.set({
+                userSatus: true,
+                
             }).then(function(){
                 console.log("Info Saved");
                 alert("Information Sucessfully Saved!")
                 //navigate to the company landing page
-                top.location.href = "../../index.html";
+                top.location.href = "../../index1.html";
             }).catch(function (error) {
                 console.log("Got an error: ", error);
             });
         })
         
-
         
 /*
         //initalize the storage for the user
         var storage = firebase.storage();
-
         // Create a storage reference from firebase storage service
         // with a child reference
         var storageRef = storage.ref();
         var imagesRef = storageRef.child('Resumes');
-
         //resume
         var file = document.getElementById("resume-input");
-
         // Create the file metadata
         var metadata = {
             contentType: file.type
         };
-
         // Upload file and metadata to the object 'images/mountains.jpg'
         var uploadTask = imagesRef.child('Resumes/' + file.name).put(file, metadata);
-
         // Listen for state changes, errors, and completion of the upload.
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
         function(snapshot) {
@@ -186,18 +197,15 @@ contains JavaScript code to push the user input into Firebase-->
                 break;
             }
         }, function(error) {
-
             // A full list of error codes is available at
             // https://firebase.google.com/docs/storage/web/handle-errors
             switch (error.code) {
                 case 'storage/unauthorized':
                 // User doesn't have permission to access the object
                 break;
-
                 case 'storage/canceled':
                 // User canceled the upload
                 break;
-
                 case 'storage/unknown':
                 // Unknown error occurred, inspect error.serverResponse
                 break;
@@ -209,7 +217,6 @@ contains JavaScript code to push the user input into Firebase-->
                 alert("Information Successfuly Saved!");
             });
         });  */
-
     </script>    
 
 </html>

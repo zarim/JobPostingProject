@@ -1,0 +1,107 @@
+[
+{
+  "CompanyName": "Spelman College",
+  "Experience_Level": "Entry Level", 
+  "Job_Type": "Administrative Assistant",
+  "Location": "Atlanta, Georgia",
+  "Salary": "60K-70K"
+},
+{
+  "CompanyName": "Google",
+  "Experience_Level": "Entry Level", 
+  "Job_Type": "Software Engineer",
+  "Location": "Mountain View, California",
+  "Salary": "120K-130K"
+},
+{
+  "CompanyName": "Microsoft",
+  "Experience_Level": "Senior Level", 
+  "Job_Type": "Sales",
+  "Location": "Atlanta, Georgia",
+  "Salary": "80K-90K"
+},
+{
+  "CompanyName": "Microsoft",
+  "Experience_Level": "Entry Level", 
+  "Job_Type": "Software Engineer",
+  "Location": "Redmond, Washington",
+  "Salary": "110K-120K"
+},
+{
+  "CompanyName": "Apple",
+  "Experience_Level": "Entry Level", 
+  "Job_Type": "Hardware Engineer",
+  "Location": "Palo Alto, California",
+  "Salary": "130K-150K"
+},
+{
+  "CompanyName": "Boeing",
+  "Experience_Level": "Senior Level", 
+  "Job_Type": "Cybersecurity",
+  "Location": "Forest Park, Georgia",
+  "Salary": "80K-90K"
+},
+{
+  "CompanyName": "Accenture",
+  "Experience_Level": "Senior Level", 
+  "Job_Type": "Accountant",
+  "Location": "New York",
+  "Salary": "100K-120K"
+},
+{
+  "CompanyName": "Google",
+  "Experience_Level": "Junior", 
+  "Job_Type": "Associate Product Manager",
+  "Location": "Berlin, Germany",
+  "Salary": "90K-100K"
+},
+{
+  "CompanyName": "Facebook",
+  "Experience_Level": "Senior Level", 
+  "Job_Type": "Project Manager",
+  "Location": "Seattle, Washington",
+  "Salary": "140K-150K"
+},
+{
+  "CompanyName": "Facebook",
+  "Experience_Level": "Entry Level", 
+  "Job_Type": "Product Manager",
+  "Location": "Menlo Park, California",
+  "Salary": "100K-120K"
+},
+{
+  "CompanyName": "Microsoft",
+  "Experience_Level": "Entry Level", 
+  "Job_Type": "Data Scientist",
+  "Location": "Redmond, Washington",
+  "Salary": "150K-170K"
+},
+{
+  "CompanyName": "Google",
+  "Experience_Level": "Senior Level", 
+  "Job_Type": "Data Engineer",
+  "Location": "New York, New York",
+  "Salary": "140K-150K"
+},
+{
+  "CompanyName": "Amazon",
+  "Experience_Level": "Senior Level", 
+  "Job_Type": "Machine Learning Engineer",
+  "Location": "New York, New York",
+  "Salary": "180K-190K"
+},
+{
+  "CompanyName": "Netflix",
+  "Experience_Level": "Senior Level", 
+  "Job_Type": "Software Engineer",
+  "Location": "Austin, Texas",
+  "Salary": "150K-160K"
+},
+{
+  "CompanyName": "Twitter",
+  "Experience_Level": "Entry Level", 
+  "Job_Type": "Software Engineer",
+  "Location": "Chicago, Illinois",
+  "Salary": "120K-130K"
+}
+]

@@ -1,0 +1,27 @@
+[
+{
+  "CandidateName": "Jaida Langham",
+  "Skills": ["C", "Java", "Swift"],
+  "Location": "Boston, Massachusetts"
+},
+{
+  "CandidateName": "Zari McFadden",
+  "Skills": ["Python", "GitHub", "Front End", "C++", "HTML/CSS"],
+  "Location": "Durham, North Carolina"
+},
+{
+  "CandidateName": "Margie Ruffin",
+  "Skills": ["JavaScript", "GitHub", "C++"],
+  "Location": "Forth Worth, Texas"
+},
+{
+  "CandidateName": "Ulunma Egwim",
+  "Skills": ["Accounting", "Excel"],
+  "Location": "Washington, D.C."
+},
+{
+  "CandidateName": "Lelia Hampton",
+  "Skills": ["Python", "Machine Learning", "Artificial Intelligence"],
+  "Location": "Atlanta, GA"
+}
+]

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "glassceilingswe"
+    "default": "glassceilingswe",
+    "glassceiling": "glassceilingswe"
   }
 }
