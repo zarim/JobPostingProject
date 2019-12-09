@@ -163,4 +163,8 @@ search.addWidget(
 // start search
 search.start();
 
+function navigate() {
+  top.location.href="../expanded-job-results/expanded-jobs.html";
+}
+
 
