@@ -1,0 +1,88 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    height: 1000px;
+    overflow: scroll;
+}
+
+.card {
+    display: inline-block;
+    background-color: darkslategray;
+    width: 60%;
+    height: 250px;
+    margin: 2% 0;
+    position: relative;
+}
+
+#company-card {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.header{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    margin: 3% auto;
+    width: 100%;
+    vertical-align: center;
+    color: #43464B;
+    text-align: center;
+}
+
+.left {
+    float: left;
+    width: 35%;
+    padding: 0 3%;
+    margin: auto;
+}
+
+.company {
+    width: 100%;
+    margin: 4% 0;
+    font-size: 20px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.role {
+    width: 100%;
+    font-size: 20px;
+    margin: 4% 0;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.location {
+    width: 100%;
+    margin: 4% 0;
+    font-size: 20px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.right {
+    float: right;
+    width: 55%;
+    padding: 0 3%;
+    margin: auto;
+}
+
+.circle-cropper {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: auto;
+}

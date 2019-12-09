@@ -51,7 +51,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: 'Lato', sans-serif;
-  }
+}
   
 #text {
     font-weight: bold;
@@ -63,84 +63,115 @@ body, html {
     font-family: 'Bowlby One SC';
     font-size: 32px;
 }
+
+#b1 {
+    display:none;
+    background:#8EB8E5;
+}
+
+#b2 {
+    display:none;
+    background:blue;
+}
+
+#b3 {
+    display:none;
+    background:rgb(1, 37, 36);
+}
+
+.c1 {
+    background: #8EB8E5;
+}
+
+.c2 {
+    background: blue;
+}
+
+.c3 {
+    background: rgb(1, 37, 36);
+}
+
 #mission-text {
     font-weight: bold;
     margin: 5%;
     font-size: 23px;
+    text-align: justify;
+    color: white;
 }
 
 .hero-image {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Spelman\ .png");
-height: 50%;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Spelman\ .png");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .hero-text {
-text-align: center;
-position: absolute;
-font-weight: bold;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: white;
+    text-align: center;
+    position: absolute;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
 
 .hero-text button {
-border: none;
-outline: 0;
-display: inline-block;
-padding: 10px 25px;
-color: black;
-background-color: #ddd;
-text-align: center;
-cursor: pointer;
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
 }
 
 .hero-text button:hover {
-background-color: #555;
-color: white;
+    background-color: #555;
+    color: white;
 }
+
 * {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-margin: 0;
-font-family: "Lato" sans-serif;
+    margin: 0;
+    font-family: "Lato" sans-serif;
 }
 
 /* FOR THE FACT BOXES: The grid: Three equal columns that floats next to each other */
 .column {
-float: left;
-width: 33.33%;
-padding: 50px;
-text-align: center;
-font-size: 25px;
-cursor: pointer;
-color: white;
+    float: left;
+    width: 33.33%;
+    padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
 }
 
 .containerTab {
-padding: 20px;
-color: white;
+    padding: 20px;
+    color: white;
 }
 
 /* Clear floats after the columns */
 .row:after {
-content: "";
-display: table;
-clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* Closable button inside the container tab */
 .closebtn {
-float: right;
-color: white;
-font-size: 35px;
-cursor: pointer;
+    float: right;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
 }
 
 img {

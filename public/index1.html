@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
     <body>
@@ -14,41 +14,38 @@
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="bias-training/bias.html">Unbiased Training</a></h2></span>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="blog/blog.html">Blog</a></h2></span>
-            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+            <!-- the login profile appears -->
+            <span tabindex="-1" input type="button"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>
         
         </div>
-        <div class="main-container">
-            <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
-                    <h1>Login</h1>
-                
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Email" name="email" required>
-                
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Password" name="psw" required>
-                
-                    <button type="submit" class="btn">Login</button>
-                    <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
-
-                    <label>Don't have an account?</label>
-                    <button>Sign Up</button>
-                </form>
+        <div class="main-container">        
+                <div class="title"><h2 id="title">You Are...</h2></div>
+                <div class="buttons">
+                    <span tabindex="-1"><input type="button" id="looking-button" onclick="location.href='candidate/search-page/search.html'" value="LOOKING"/></span>
+                    <span tabindex="-1"><input type="button" id="hiring-button" onclick="location.href='company/hiring-landing/landing.html'" value="HIRING"/></span>
+                </div>
             </div>
-            <div class="title"><h2 id="title">You Are...</h2></div>
-            <div class="buttons">
-                <span tabindex="-1"><input type="button" id="looking-button" onclick="location.href='candidate/search-page/search.html'" value="LOOKING"/></span>
-                <span tabindex="-1"><input type="button" id="hiring-button" onclick="location.href='company/hiring-landing/landing.html'" value="HIRING"/></span>
-            </div>
-        </div>
-        <script>
-            function openForm() {
-                document.getElementById("myForm").style.display = "block";
-            }
-
-            function closeForm() {
-                document.getElementById("myForm").style.display = "none";
-            }
-        </script>
-    </body>
-</html>
+            <script>
+                function openForm() {
+                    document.getElementById("myForm").style.display = "block";
+                }
+    
+                function closeForm() {
+                    document.getElementById("myForm").style.display = "none";
+                }
+            </script>
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+    
+           <!-- <script src="/__/firebase/7.2.3/firebase-app.js"></script>
+            <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
+            <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+            <script src="/__/firebase/7.2.3/firebase-storage.js"></script>
+            <script src="/__/firebase/init.js"></script>-->
+    
+        
+        </body>
+    </html>

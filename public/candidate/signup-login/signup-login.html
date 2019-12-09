@@ -1,7 +1,16 @@
+<!--HTML for the signup login page. Only contains a header and an iframe - the iframe allows the signup/login code to change
+without changing pages. iframe initially points to the login html-->
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+        <script src="signup-auth.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="signup-login.css">
     </head>
 
@@ -11,7 +20,7 @@
                 <h1 id="Header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
             </div>
             <div class="login">
-                <iframe class="container" src="login.html"></iframe>
+                <iframe class="container" src="can-login.html"></iframe>
             </div>
         </div>
     </body>

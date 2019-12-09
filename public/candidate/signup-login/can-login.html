@@ -1,0 +1,156 @@
+<!--HTML for the login page. Contains labels and input places for the user to put in info-->
+<!DOCTYPE html>
+<htmL>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+    <!--<link rel="stylesheet" type="text/css" href="signup-login.css">-->
+    <link rel="stylesheet" type="text/css" href="login.css">
+  </head>
+
+  <body>
+    <div class="main-container">
+      <form>
+        <div class="container">
+          <h1 class="login" id="text">Login</h1>
+          <label class="email" id="text">Email</label>
+          <input class type="text" placeholder="Enter email" name="email" id="email" required>
+          <label class="password" id="text">Password</label>
+          <input type="password" placeholder="Enter password" name="password" id="password" required>
+          <div class="enter">
+            <!--<button type="button" class="cancelButton">Cancel</button>-->
+            <input type="button" class="cancelButton" id=QuitButton value="Cancel" onclick="location.href='../../index.html';">
+            <input type="button" class="loginButton" value="Login" id="LoginButton" onclick=toggleSignIn();>    
+          </div>
+          <div class="signup-route">
+            <h3 id="signup">Don't have an account?</h3>
+            <span tabindex="-1" class="signup"><input type="button" class="signup" id="text" onclick="location.href='../signup-login/signup.html';" value="Signup"/></span>
+          </div>
+          </div>
+      </form>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+  </body>
+
+  <script type="text/javascript"> 
+
+    const firebaseConfig = {
+              apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+              authDomain: "glassceilingswe.firebaseapp.com",
+              databaseURL: "https://glassceilingswe.firebaseio.com",
+              projectId: "glassceilingswe",
+              storageBucket: "glassceilingswe.appspot.com",
+              messagingSenderId: "318857051230",
+              appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+              measurementId: "G-LEHC8NNE1X"
+          };    
+
+      firebase.initializeApp(firebaseConfig);
+
+      //initalize the database for the user
+      var database = firebase.firestore();
+
+
+      // Email
+      const EmailHeader = document.querySelector("#text");
+      const EmailTextField = document.querySelector("#email");
+
+
+//we just need to get their staus and see if it's false
+
+      function toggleSignIn() {
+        //NametoSave  
+        const EmailToSave = EmailTextField.value;
+
+        var docRef = database.collection("UserStatus");
+
+        var query = docRef.where("doc", "==", EmailToSave).where("userStatus", "==", true).get();
+
+        //get the doc ref and see if it's falsexs
+        if (docRef.length == 0) {
+          // [START signout]
+
+            //set a variable for signed in to true
+            //onClick of the save button add these fields to DB
+            LoginButton.addEventListener("click", function () {
+
+            //create a collection and document reference for profiles
+            const docRef = database.collection("UserStatus").doc(EmailToSave)
+
+            docRef.set({
+                userSatus: false,
+                
+            }).then(function(){
+                console.log("User Logged Out");
+                alert("Successfully Logged Out")
+                //navigate to the company landing page w/o login icon
+                top.location.href = "../../index.html";
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+            })
+
+          //firebase.auth().signOut();
+          // [END signout]
+        } else {
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+
+          if (email.length < 4) {
+            alert('Please enter an email address.');
+            return;
+          }
+          if (password.length < 4) {
+            alert('Please enter a password.');
+            return;
+          }
+          // Sign in with email and pass.
+          // [START authwithemail]
+          firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // [START_EXCLUDE]
+            if (errorCode === 'auth/wrong-password') {
+              alert('Wrong password.');
+            } else {
+              alert(errorMessage);
+            }
+            console.log(error);
+
+        });
+
+            //set a variable for signed in to true
+            //onClick of the save button add these fields to DB
+            LoginButton.addEventListener("click", function () {
+
+            //NametoSave  
+            const EmailToSave = EmailTextField.value;
+            
+            //create a collection and document reference for profiles
+            const docRef = database.collection("UserStatus").doc(EmailToSave)
+        
+            docRef.set({
+                userSatus: true,
+                
+            }).then(function(){
+                console.log("User Logged In");
+                alert("Successfully Logged In")
+                //navigate to the company landing page w/ login icon
+                top.location.href = "../../index1.html";
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+        })
+
+      }
+
+  }
+
+  </script>
+ 
+</htmL>

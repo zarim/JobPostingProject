@@ -101,22 +101,22 @@ color: white;
 }
 
 .hero-text button {
-border: none;
-outline: 0;
-display: inline-block;
-padding: 10px 25px;
-color: black;
-background-color: #ddd;
-text-align: center;
-cursor: pointer;
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
 }
 
 .hero-text button:hover {
-background-color: #555;
-color: white;
+    background-color: #555;
+    color: white;
 }
 * {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -127,31 +127,31 @@ color: white;
 
 /* The grid: Three equal columns that floats next to each other */
 .column {
-float: left;
-width: 33.33%;
-padding: 50px;
-text-align: center;
-font-size: 25px;
-cursor: pointer;
-color: white;
+    float: left;
+    width: 33.33%;
+    padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
 }
 
 .containerTab {
-padding: 20px;
-color: white;
+    padding: 20px;
+    color: white;
 }
 
 /* Clear floats after the columns */
 .row:after {
-content: "";
-display: table;
-clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* Closable button inside the container tab */
 .closebtn {
-float: right;
-color: white;
-font-size: 35px;
-cursor: pointer;
+    float: right;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
 }
