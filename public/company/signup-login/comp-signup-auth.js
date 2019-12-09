@@ -85,9 +85,20 @@ function companyCheck(){
 
       var id = documentSnapshot.get("CompID");
 
-      alert("Your Company already exsist within our system. Your Company ID is, " + id)
+      alert("Your Company already exsist within our system! Your Company ID is, " + id)
+      alert("Please sign in")
+      top.location.href = "signup-login.html"; 
+      /*create a collection and document reference for profiles
+      const docRef = db.collection("CompStatus").doc(email);
+      console.log("the references was created");
+
+      docRef.set({
+          CompStatus: true
+
+      })*/
+
       //redirect to landing page where their logged in
-      top.location.href = "../hiring-landing/landingLoggedIn.html"; 
+      //top.location.href = "../hiring-landing/landingLoggedIn.html"; 
 
     } else{
 

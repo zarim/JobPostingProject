@@ -83,8 +83,6 @@
       //onClick of the save button add these fields to DB
       LoginButton.addEventListener("click", function () {
 
-
-
       //create a collection and document reference for profiles
       const docRef = database.collection("CompStatus").doc(EmailToSave)
 
@@ -138,7 +136,7 @@
       }
       console.log(error);
 
-  });
+      });
 
       //set a variable for signed in to true
       //onClick of the save button add these fields to DB
@@ -164,9 +162,8 @@
           top.location.href = "../hiring-landing/landingLoggedIn.html";
       }).catch(function (error) {
           console.log("Got an error: ", error);
-      });
-  })
-
+        });
+      })
   }
 }
 
