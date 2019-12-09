@@ -1,0 +1,174 @@
+<!--Empty HTML file will eventually contain labels, inputs, and buttons for employers to add a job.-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="job.css">
+    </head>
+
+    <body>
+        <div class="page">
+            <div class="menu">
+                <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+                <!--<span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>-->
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>
+
+            </div>
+            <div class="company-header">
+                <h2 id="company-header">Add Job Role</h2>
+            </div>
+            <div class="content">
+                <div class="left-container">
+                    <label class="user-name" id="right-text">Company Name</label>
+                    <input type="text" placeholder="Enter company name" name="company" id="company" required>
+                    <label class="user-name" id="right-text">Position Name</label>
+                    <input type="text" placeholder="Enter position" name="company" id="position" required>
+                    <label class="user-name" id="right-text">Location</label>
+                    <input type="text" placeholder="Enter location" name="company" id="location" required>
+                    <label class="user-name" id="right-text">Salary Range</label>
+                    <input type="text" placeholder="Enter salary range" name="company" id="salary" required>
+                    <label class="user-name" id="right-text">Position Type</label>
+                    <input type="text" placeholder="Enter position type ex. Software Engineer, PM, etc." name="company" id="position-type" required>
+                    <label class="user-name" id="right-text">Interview Type</label>
+                    <input type="text" placeholder="Enter interview type ex. behavioral, technical, etc." name="company" id="interview-type" required>
+                    <label class="user-name" id="right-text">Expiration Date</label>
+                    <input type="date" placeholder="Enter expiration date" name="company" id="expiration" required>
+                </div>
+                <div class="right-container">
+                    <label class="user-name" id="right-text">Experience Level</label>
+                    <input type="text" placeholder="Enter experience level required" name="diversity" id="experience" required>
+                    <label class="user-name" id="right-text">Requirements and Skills Preference</label>
+                    <input type="text" placeholder="Enter job requirements and skills preference" name="benefits" id="requirements" required>
+                    <label class="user-name" id="right-text">Description and Responsibilities</label>
+                    <input type="text" placeholder="Enter job description and responsibilities" name="facts" id="description" required>
+                    <div class="enter">
+                            <input type="button" class="cancelButton" id=QuitButton value="Quit" onclick="location.href='../hiring-landing/landingLoggedIn.html';">
+                        <input type="button" class="addJobButton" id="SaveButton" value="Add Job">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+    </body>
+
+    <script type="text/javascript">
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };    
+
+        firebase.initializeApp(firebaseConfig);
+
+        //initalize the database for the user
+        var database = firebase.firestore();
+
+
+        //Company Name
+        const NameHeader = document.querySelector("#right-text");
+        const NameTextField = document.querySelector("#company");
+        //Position Name
+        const PositionHeader = document.querySelector("#right-text");
+        const PositionTextField = document.querySelector("#position");
+        //Location
+        const LocationHeader = document.querySelector("#right-text");
+        const LocationTextField = document.querySelector("#location");
+        //Salary Range
+        const SalaryHeader = document.querySelector("#right-text");
+        const SalaryTextField = document.querySelector("#salary");
+        //Position Type
+        const TypeHeader = document.querySelector("#right-text");
+        const TypeTextField = document.querySelector("#position-type");
+        //Interview Type
+        const InterviewHeader = document.querySelector("#right-text");
+        const InterviewTextField = document.querySelector("#interview-type");
+        //Expiration Date
+        const DateHeader = document.querySelector("#right-text");
+        const DateTextField = document.querySelector("#expiration");
+        //Experience Level
+        const ExperienceHeader = document.querySelector("#right-text");
+        const ExperienceTextField = document.querySelector("#experience");
+        //Requirements Skills & Preferences
+        const SkillsHeader = document.querySelector("#right-text");
+        const SkillsTextField = document.querySelector("#requirements")
+        //Description & Responsibilities
+        const ResponsibilitiesHeader = document.querySelector("#right-text");
+        const ResponsibilitiesTextField = document.querySelector("#description");
+        //onClick of the save button add these fields to DB
+        SaveButton.addEventListener("click", function () {
+            //Company Name
+            const NameToSave = NameTextField.value;
+
+            //Position Name
+            const PostionToSave = PositionTextField.value;
+
+            //Location
+            const LocationToSave = LocationTextField.value;
+
+            //Salary Range
+            const SalaryToSave = SalaryTextField.value;
+
+            //Position Type
+            const TypeToSave = TypeTextField.value;
+
+            //Interview Type
+            const InterviewToSave = InterviewTextField.value;
+
+            //Expiration Date
+            const DateToSave = DateTextField.value;
+
+            //Experience Level
+            const ExperienceToSave = ExperienceTextField.value;
+
+            //Requirements Skills & Preferences
+            const SkillsToSave = SkillsTextField.value;
+
+            //Description & Responsibilities
+            const ResponsibilitiesToSave = ResponsibilitiesTextField.value;
+
+            //create a collection and a new document reference for job profile
+            const docRef = database.collection("Job-Posts").doc(NameToSave)
+        
+            docRef.set({
+                CompanyName: NameToSave,
+                Job_Posistion: PostionToSave,
+                Location: LocationToSave,
+                Salary: SalaryToSave,
+                Job_Type: TypeToSave,
+                Interview_Type: InterviewToSave,
+                Post_Expiration: DateToSave,
+                Experience_Level: ExperienceToSave,
+                Skills_Preferences: SkillsToSave,
+                Responsibilities: ResponsibilitiesToSave
+            }).then(function(){
+                    console.log("Name Saved");
+                    alert("Information Successfuly Saved!");
+                    //redirect the company to their landing page
+                    top.location.href = "../hiring-landing/landing.html";
+                }).catch(function (error) {
+                    console.log("Got an error: ", error);
+                });
+        
+        })
+        
+        // could create a button that says add another...
+        
+    
+    </script>
+</html>

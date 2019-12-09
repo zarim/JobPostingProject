@@ -1,0 +1,53 @@
+<!--HTML code for the job results page.-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+        <script src="job-results.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="job-results.css">
+    </head>
+    <body onload="populateJobs()">
+        <div class="menu">
+            <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+        </div>
+        <div class="main-container">
+            <div class="top">
+                <div class="search-box">
+                    <input id="search" type="text" name="" placeholder="Type to Search">
+                </div>
+                <!--
+                <div class="filter-box">
+                    <button id="filter">Filter</button>
+                </div>
+                -->
+            </div>
+            <div class="bottom">
+                <div id="card"></div>
+                <div id="job-card" class="card">
+                    <div class="left">
+                        <div class="circle-cropper"></div>
+                    </div>
+                    <div class="right">
+                        <h3 id="card-header">Role</h3>
+                        <div class="role" id="role">{{role}}</div>
+                        <h3 id="card-header">Company</h3>
+                        <div class="company" id="company">{{company}}</div>
+                        <h3 id="card-header">Location</h3>
+                        <div class="location" id="location">{{location}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

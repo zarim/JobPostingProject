@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+        <link rel="stylesheet" type="text/css" href="candidate-card.css">
+    </head>
+    <body onload="">
+        <div id="card"></div>
+        <h3 class="header">Current Candidate Listings</h3>
+        <script id="candidate-card" type="text/x-handlebars-template">
+            <div id="candidate-card" class="card">
+                <div class="left">
+                    <div class="circle-cropper"></div>
+                </div>
+                <div class="right">
+                    <div class="name" id="name">Name</div>
+                    <div class="name" id="name">{{name}}</div>
+                    <div class="location" id="location">Location</div>
+                    <div class="location" id="location">{{location}}</div>
+                    <div class="skills" id="skills">Skills</div>
+                    <div class="skills" id="skills">{{skills}}</div>
+                </div>
+            </div>
+        </script>
+    </body>
+</html>

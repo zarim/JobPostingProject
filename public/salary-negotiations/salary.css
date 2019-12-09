@@ -1,159 +1,230 @@
 html {
-    background-color: darkslategray;
+  background-color: darkslategray;
 }
 
 .page {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .header {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    color: #00C9C9;
-    font-family: 'Lato', sans-serif;
-    font-size: 35px;
-    font-weight: bolder;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #00C9C9;
+  font-family: 'Lato', sans-serif;
+  font-size: 35px;
+  font-weight: bolder;
 }
 
 #header {
-    margin: auto;
+  margin: auto;
 }
 
 #menu-item {
-    margin: auto;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 47px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 47px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 #menu-item a {
-    text-decoration: none;
-    color: #00C9C9;
+  text-decoration: none;
+  color: #00C9C9;
 }
 
 .menu {
-    width: 100%;
-    margin: 1% auto;
-    height: 70px;
-    display: flex;
-    flex-direction: row;
-    font-family: 'Lato', sans-serif;
-    font-size: 20px;
+  width: 100%;
+  margin: 1% auto;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+#text {
+  font-weight: bold;
+  font-family: 'Bowlby One SC';
+  font-size: 40px;
+}
+#f-text {
+  font-weight: bold;
+  font-family: 'Bowlby One SC';
+  font-size: 32px;
+}
+
+#b1 {
+  display:none;
+  background:#8EB8E5;
+}
+
+#b2 {
+  display:none;
+  background:blue;
+}
+
+#b3 {
+  display:none;
+  background:rgb(1, 37, 36);
+}
+
+.c1 {
+  background: #8EB8E5;
+}
+
+.c2 {
+  background: blue;
+}
+
+.c3 {
+  background: rgb(1, 37, 36);
+}
+
+#mission-text {
+  font-weight: bold;
+  margin: 5%;
+  font-size: 23px;
+  text-align: justify;
+  color: white;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("money3.gif");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
 }
 
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Lato', sans-serif;
-    padding: 10px;
-    background:darkslategray;
-  }
-  
-  /* Header/Blog Title */
-  .j-header {
-    padding: 30px;
-    text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("money3.gif");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    font-weight: bold;
-    font-family: 'Bowlby One SC';
-    font-size: 40px;
-  }
-  
-  .j-header h1 {
-    font-size: 50px;
-  }
-  
-  /* Style the top navigation bar */
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  /* Style the topnav links */
-  .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change color on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Create two unequal columns that floats next to each other */
-  /* Left column */
-  .leftcolumn {   
-    float: left;
-    width: 75%;
-  }
-  
-  /* Right column */
-  .rightcolumn {
-    float: left;
-    width: 25%;
-    background-color: #f1f1f1;
-    padding-left: 20px;
-  }
-  
-  /* Fake image */
-  .fakeimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
-  }
-  
-  /* Add a card effect for articles */
-  .card {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Footer */
-  .j-footer {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-    margin-top: 20px;
-  }
-  
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
-      width: 100%;
-      padding: 0;
-    }
-  }
-  
-  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media screen and (max-width: 400px) {
-    .topnav a {
-      float: none;
-      width: 100%;
-    }
-  }
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato" sans-serif;
+}
+
+/* FOR THE FACT BOXES: The grid: Three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 50px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.containerTab {
+  padding: 20px;
+  color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Closable button inside the container tab */
+.closebtn {
+  float: right;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+img {
+  border-radius: 50%;
+}
+
+/* FOR FOUNDER IMAGES */
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.jcolumn {
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.jrow::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Container needed to position the overlay. Adjust the width as needed */
+.jcontainer {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+
+/* Make the image to responsive */
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.jcontainer:hover .overlay {
+  opacity: 1;
+}
