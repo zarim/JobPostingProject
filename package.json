@@ -4,7 +4,10 @@
   "description": "glass ceiling project for swe",
   "main": "index.js",
   "dependencies": {
-    "firebase": "^7.3.0"
+    "algoliasearch": "^3.35.1",
+    "dotenv": "^8.2.0",
+    "firebase": "^7.5.2",
+    "node": "^13.1.0"
   },
   "devDependencies": {},
   "scripts": {
