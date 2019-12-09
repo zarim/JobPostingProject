@@ -1,0 +1,34 @@
+<!--HTML for the company landing page. Contains menu and buttons-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="landing.css">
+    </head>
+    <body>
+        <div class="menu">
+            <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index1.html';" value="glass ceiling"/></h1>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index1.html">Home</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+
+            <!--Change the path to the profile and make icon loggedin-->
+            <span tabindex="-1" id="menu-item"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>
+        </div>
+        <div class="main-container">
+            <div class="title"><h2 id="title">I Want To...</h2></div>
+            <div class="buttons">
+                <span tabindex="-1"><input type="button" id="looking-button" onclick="location.href='../candidate-results/candidate-resultsLoggedIn.html'" value="LOOK FOR CANDIDATES"/></span>
+                <span tabindex="-1"><input type="button" id="hiring-button" onclick="location.href='../add-job-role/job.html'" value="POST A JOB"/></span>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+    </body>
+</html>

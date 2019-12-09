@@ -15,9 +15,9 @@ describe('signup()', function() {
     {args: ["jlangham@scmail.spelman.edu", "glass3"], expected: ["jlangham@scmail.spelman.edu", "glass3"]},
     {args: ["uegwim@scmail.spelman.edu", "glass4"], expected: ["uegwim@scmail.spelman.edu", "glass4"]},
     {args: ["mruff@scmail.spelman.edu", "glass5"], expected: ["mruff@scmail.spelman.edu", "glass5"]},
-    {args: ["leliawashere", "1998"], expected: ["", ""]},
-    {args: ["zarirules", 2000], expected: ["", 0]},
-    {args: ["somebodypleasestopjaida", 1998], expected: ["", 0]},
+    {args: ["leliawashere", "1998"], expected: ["", "1998"]},
+    {args: ["zarirules", 2000], expected: ["zarirules", 2000]},
+    {args: ["somebodypleasestopjaida", 1998], expected: ["somebodypleasestopjaida", 1998]},
   ];
 
   // this goes through each argument in the tests lists and 
