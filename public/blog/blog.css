@@ -65,15 +65,22 @@ body, html {
   }
   
   .topleft {
-    position: absolute;
+    text-align: center;
+    padding: 1%;
+    /* position: absolute;
     top: 0;
-    left: 16px;
+    left: 16px; */
   }
   
   .bottomleft {
     position: absolute;
     bottom: 0;
-    text-align:center;
+    text-align: center;
+    padding: 1%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .middle {
