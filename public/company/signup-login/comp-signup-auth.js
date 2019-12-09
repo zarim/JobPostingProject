@@ -78,12 +78,16 @@ function companyCheck(){
 
   var compName = document.getElementById('company').value;
 
-  var compRef = db.collection("CompanyProfiles").doc(compName);
+  //var compRef = db.collection("CompanyProfiles").doc(compName);
+
+  // This points to the collection called 'cities'
+  var collectionReference = db.collection('CompanyProfiles');
 
   compRef.get().then(function(doc) {
     if (doc.exists) {
         
         console.log("Document data:", doc.CompID, " => ", doc.data());
+
         alert("Your Company already exsist within our system. Your Company ID is, " + doc.CompID)
         //redirect to landing page where their logged in
         top.location.href = "../hiring-landing/landingLoggedIn.html"; 

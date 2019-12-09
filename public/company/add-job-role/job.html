@@ -53,85 +53,98 @@
                 </div>
             </div>
         </div>
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
     </body>
 
     <script type="text/javascript">
 
-        //initalize the database for the the job input
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };    
+
+        firebase.initializeApp(firebaseConfig);
+
+        //initalize the database for the user
         var database = firebase.firestore();
+
 
         //Company Name
         const NameHeader = document.querySelector("#right-text");
         const NameTextField = document.querySelector("#company");
-
         //Position Name
         const PositionHeader = document.querySelector("#right-text");
         const PositionTextField = document.querySelector("#position");
-
         //Location
         const LocationHeader = document.querySelector("#right-text");
         const LocationTextField = document.querySelector("#location");
-
         //Salary Range
         const SalaryHeader = document.querySelector("#right-text");
         const SalaryTextField = document.querySelector("#salary");
-
         //Position Type
         const TypeHeader = document.querySelector("#right-text");
         const TypeTextField = document.querySelector("#position-type");
-
         //Interview Type
         const InterviewHeader = document.querySelector("#right-text");
         const InterviewTextField = document.querySelector("#interview-type");
-
         //Expiration Date
         const DateHeader = document.querySelector("#right-text");
         const DateTextField = document.querySelector("#expiration");
-
         //Experience Level
         const ExperienceHeader = document.querySelector("#right-text");
         const ExperienceTextField = document.querySelector("#experience");
-
         //Requirements Skills & Preferences
         const SkillsHeader = document.querySelector("#right-text");
         const SkillsTextField = document.querySelector("#requirements")
-
         //Description & Responsibilities
         const ResponsibilitiesHeader = document.querySelector("#right-text");
         const ResponsibilitiesTextField = document.querySelector("#description");
-
         //onClick of the save button add these fields to DB
         SaveButton.addEventListener("click", function () {
-
             //Company Name
             const NameToSave = NameTextField.value;
+
             //Position Name
             const PostionToSave = PositionTextField.value;
+
             //Location
             const LocationToSave = LocationTextField.value;
+
             //Salary Range
             const SalaryToSave = SalaryTextField.value;
+
             //Position Type
             const TypeToSave = TypeTextField.value;
+
             //Interview Type
             const InterviewToSave = InterviewTextField.value;
+
             //Expiration Date
             const DateToSave = DateTextField.value;
+
             //Experience Level
             const ExperienceToSave = ExperienceTextField.value;
+
             //Requirements Skills & Preferences
             const SkillsToSave = SkillsTextField.value;
+
             //Description & Responsibilities
             const ResponsibilitiesToSave = ResponsibilitiesTextField.value;
 
             //create a collection and a new document reference for job profile
             const docRef = database.collection("Job-Posts").doc(NameToSave)
         
-
             docRef.set({
                 CompanyName: NameToSave,
                 Job_Posistion: PostionToSave,
@@ -143,21 +156,19 @@
                 Experience_Level: ExperienceToSave,
                 Skills_Preferences: SkillsToSave,
                 Responsibilities: ResponsibilitiesToSave
-
             }).then(function(){
                     console.log("Name Saved");
                     alert("Information Successfuly Saved!");
+                    //redirect the company to their landing page
+                    top.location.href = "../hiring-landing/landing.html";
                 }).catch(function (error) {
                     console.log("Got an error: ", error);
                 });
-        //redirect the company to their landing page
-        top.location.href = "../hiring-landing/landing.html";
+        
         })
         
         // could create a button that says add another...
-
         
-
     
     </script>
 </html>
