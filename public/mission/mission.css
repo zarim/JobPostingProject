@@ -93,7 +93,7 @@ body, html {
 
 #mission-text {
     font-weight: bold;
-    margin: 8%;
+    margin: 5%;
     font-size: 23px;
     text-align: justify;
     color: white;
@@ -143,7 +143,7 @@ body {
     font-family: "Lato" sans-serif;
 }
 
-/* The grid: Three equal columns that floats next to each other */
+/* FOR THE FACT BOXES: The grid: Three equal columns that floats next to each other */
 .column {
     float: left;
     width: 33.33%;
@@ -174,14 +174,57 @@ body {
     cursor: pointer;
 }
 
-.footer {
-    color: white;
-    margin: 3%;
-    text-align: justify;
-    font-size: 10px;
-}
+img {
+    border-radius: 50%;
+  }
 
-#h1 {
+  /* FOR FOUNDER IMAGES */
+  /* Three image containers (use 25% for four, and 50% for two, etc) */
+.jcolumn {
+    float: left;
+    width: 20%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .jrow::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* Container needed to position the overlay. Adjust the width as needed */
+.jcontainer {
+    position: relative;
+    width: 50%;
+    max-width: 300px;
+  }
+  
+  /* Make the image to responsive */
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+  }
+  
+  /* The overlay effect - lays on top of the container and over the image */
+  .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
     color: white;
+    font-size: 20px;
+    padding: 20px;
     text-align: center;
-}
+  }
+  
+  /* When you mouse over the container, fade in the overlay title */
+  .jcontainer:hover .overlay {
+    opacity: 1;
+  }
