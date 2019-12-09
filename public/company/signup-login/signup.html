@@ -3,18 +3,22 @@ JavaScript code to communicate with Firebase and add users to the database.-->
 <!DOCTYPE html>
 <htmL>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="signup.css">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>-->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="signup.css">
     </head>
-
-    <script type="text/javascript" src="../../Authentication/authentication.js"></script>
+ 
     <body>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
 
-        <script src="/__/firebase/7.2.3/firebase-app.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-auth.js"></script>
-        <script src="/__/firebase/7.2.3/firebase-firestore.js"></script>
-
+        <!--<script type="text/JavaScript" src="../../Authentication/authentication.js"></script>-->
+        <script type="text/javascript" src="comp-signup-auth.js"></script>
+        
         <form>
             <div class="container">
                 <h1 class="signup" id="text">Employer Signup</h1>
@@ -30,12 +34,12 @@ JavaScript code to communicate with Firebase and add users to the database.-->
                 <input type="password" placeholder="Re-Enter password" name="reenter-password" id="reenter-password"  required>
 
                 <div class="enter">
-                    <button type="button" class="cancelButton">Cancel</button>
-                    <input type="button" class="signupButton" value="Sign Up" onclick="handleSignUp();">
+                    <input type="button" class="cancelButton" id=QuitButton value="Quit" onclick="location.href='../../index.html';">
+                    <input type="button" class="signupButton" value="Sign Up" onclick=handleSignUp();>
                 </div>
                 <div class="login-route">
                     <h3 id="login">Have an account?</h3>
-                    <span tabindex="-1" class="login"><input type="button" class="login" id="text" onclick="location.href='../signup-login/login.html';" value="Login"/></span>
+                    <span tabindex="-1" class="login"><input type="button" class="login" id="text" onclick="location.href='signup-login.html';" value="Login"/></span>
                 </div>
                 <div class="other">
                     <span tabindex="-1" class="other"><input type="button" class="other" id="text" onclick="location.href='../../candidate/signup-login/signup.html';" value="Signup as Candidate"/></span>
@@ -43,50 +47,4 @@ JavaScript code to communicate with Firebase and add users to the database.-->
             </div>
         </form>
     </body>
-    <script type="text/javascript">
-
-function handleSignUp() {
-        //save the name in the database maybe
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        //password length verification
-        if (email.length < 4) {
-          alert('Please enter an email address.');
-          return;
-        }
-        if (password.length < 4) {
-          alert('Please enter a password.');
-          return;
-        }
-        // Sign up with email and pass.
-        // [START createwithemail]
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-          
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // [START_EXCLUDE]
-          if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);
-          // [END_EXCLUDE]
-        });
-      // [END createwithemail]
-
-      //sendEmailVerification();
-      firebase.auth().currentUser.sendEmailVerification().then(function() {
-        // Email Verification sent!
-        // [START_EXCLUDE]
-        alert('Email Verification Sent!');
-        top.location.href = "../company-profile/company.html";
-       
-      });
-       //Save name and company to database
-    }
-
-      
-        </script>
 </htmL>
