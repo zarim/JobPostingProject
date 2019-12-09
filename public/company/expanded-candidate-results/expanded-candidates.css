@@ -160,13 +160,15 @@ html {
 }
 
 .circle-cropper {
-    background-color: white;
     width: 150px;
     height: 150px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
     margin: auto;
+    background-image: url(profileIcon.png);
+    background-position: center;
+    background-size: cover;
 }
 
 .description-side {
