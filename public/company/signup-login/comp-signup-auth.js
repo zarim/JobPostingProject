@@ -64,12 +64,6 @@ function sendEmail() {
     }).catch(function(error) {
   // An error happened.
     });
-
-    
-  //firebase.auth().currentUser.sendEmailVerification().then(function() {
-    // [END_EXCLUDE]
-  //});
-  // [END sendemailverification]
 }
 
 
@@ -81,16 +75,19 @@ function companyCheck(){
   //var compRef = db.collection("CompanyProfiles").doc(compName);
 
   // This points to the collection called 'cities'
-  var collectionReference = db.collection('CompanyProfiles');
+  var documentSnapshot = db.collection('CompanyProfiles').doc(compName);
 
-  compRef.get().then(function(doc) {
-    if (doc.exists) {
-        
-        console.log("Document data:", doc.CompID, " => ", doc.data());
+  documentSnapshot.get().then(function(documentSnapshot){
+    if (documentSnapshot.exists) {
+      // do something with the data
+      var data = documentSnapshot.data();
+      console.log(data);
 
-        alert("Your Company already exsist within our system. Your Company ID is, " + doc.CompID)
-        //redirect to landing page where their logged in
-        top.location.href = "../hiring-landing/landingLoggedIn.html"; 
+      var id = documentSnapshot.get("CompID");
+
+      alert("Your Company already exsist within our system. Your Company ID is, " + id)
+      //redirect to landing page where their logged in
+      top.location.href = "../hiring-landing/landingLoggedIn.html"; 
 
     } else{
 
@@ -104,8 +101,8 @@ function companyCheck(){
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
-
-    
   }
+    
+
 
 
