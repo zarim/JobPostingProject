@@ -1,0 +1,166 @@
+<!--HTML for the company profile page. Contains labels, inputs, and buttons for the user to enter information about themselves and
+the company. Also contains JavaScript code to push the user input into Firebase-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="company.css">
+    </head>
+
+    <body>
+        <div class="page">
+            <div class="menu">
+                <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>
+            </div>
+            <div class="company-header">
+                <h2 id="company-header">Company Profile</h2>
+            </div>
+            <div class="content">
+                <div class="left-container">
+                    <div class="top">
+                        <div class="circle-cropper"></div>
+                    </div>
+                    <div class="middle">
+                        <label class="user-name" id="right-text">Company Name</label>
+                        <input type="text" placeholder="Enter company name" name="company" id="company" required>
+
+                        <label class="user-name" id="right-text">Company ID</label>
+                        <input type="text" placeholder="Enter Given Company ID" name="ID" id="companyID" required>
+
+                        <label class="user-name" id="right-text">Company History</label>
+                        <input type="text" placeholder="Enter history about the company" name="history" id="history-right-input" required>
+                    </div>
+                    <div class="bottom">
+                        <input type="button" class="add-job-button" value="Add Job Role" onclick="location.href='../add-job-role/job.html'">
+                        <input type="button" class="see-job-button" value="Current Job Listings" onclick="">
+                    </div>
+                </div>
+                <div class="right-container">
+                    <label class="user-name" id="right-text">Diversity and Inclusion</label>
+                    <input type="text" placeholder="Enter diversity and inclusion information" name="diversity" id="dni-right-input" required>
+                    <label class="user-name" id="right-text">Benefits</label>
+                    <input type="text" placeholder="Enter company benefits" name="benefits" id="benefits-right-input" required>
+                    <label class="user-name" id="right-text">Fun Facts</label>
+                    <input type="text" placeholder="Enter fun facts about the company" name="facts" id="facts-right-input" required>
+                    <div class="enter">
+                        <input type="button" class="cancelButton" id="QuitButton" value="Quit" onclick="location.href='../../index.html';">
+                        <input type="button" class="saveButton" id="SaveButton" value="Save">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+
+    </body>
+
+    <script type="text/javascript">
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };    
+
+        firebase.initializeApp(firebaseConfig);
+
+        //initalize the database for the user
+        var database = firebase.firestore();
+
+        //Company Name
+        const NameHeader = document.querySelector("#right-text");
+        const NameTextField = document.querySelector("#company");
+
+        //Company Name
+        const IDHeader = document.querySelector("#right-text");
+        const IDTextField = document.querySelector("#companyID");
+
+        //Company History
+        const HistoryHeader = document.querySelector("#right-text");
+        const HistoryTextField = document.querySelector("#history-right-input");
+
+        //Diversity & Inclusion
+        const DNIHeader = document.querySelector("#right-text");
+        const DNITextField = document.querySelector("#dni-right-input");
+
+        //Benefits
+        const BenefitHeader = document.querySelector("#right-text");
+        const BenefitTextField = document.querySelector("#benefits-right-input");
+
+        //Fun Facts
+        const FactHeader = document.querySelector("#right-text");
+        const FactHeaderField = document.querySelector("#facts-right-input");
+
+        //onClick of the save button add these fields to DB
+        SaveButton.addEventListener("click", function () {
+
+            //NametoSave  
+            const NameToSave = NameTextField.value;
+
+            //IDtoSave
+            const IDToSave = IDTextField.value;
+
+            //HistorytoSave
+            const HistoryToSave = HistoryTextField.value;
+
+            //DNItoSave
+            const DNIToSave = DNITextField.value;
+
+            //BenefitstoSave
+            const BenefitsToSave = BenefitTextField.value;
+
+            //FactstoSave
+            const FactsToSave = FactHeaderField.value;
+
+
+            console.log("I am going to save data to Firestore")
+
+            //figure out how to create a new doc for each User Profile
+            //create a collection and document reference for profiles
+            const docRef = database.collection("CompanyProfiles").doc(NameToSave)
+
+            docRef.set({
+                CompanyName: NameToSave,
+                CompID: IDToSave,
+                CompanyHistory: HistoryToSave,
+                CompanyDNI: DNIToSave,
+                Benefits: BenefitsToSave,
+                Fun_Facts: FactsToSave
+            })
+            
+            const docRef2 = database.collection("CompStatus").doc(EmailToSave)
+
+            docRef2.set({
+                CompStatus: true
+                
+            }).then(function(){
+                console.log("Name Saved");
+                alert("Information Successfuly Saved!");
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+            //navigate to the company landing page
+
+            top.location.href = "../signup-login/signup-login.html";
+        })
+        
+    </script> 
+</html> 
+

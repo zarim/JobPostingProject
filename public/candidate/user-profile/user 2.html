@@ -1,0 +1,222 @@
+<!--HTML for the user profile page. Contains labels, inputs, and buttons for the user to enter information about themselves. Also 
+contains JavaScript code to push the user input into Firebase-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="user.css">
+    </head>
+    <body>
+        <div class="page">
+            <div class="menu">
+                <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../candidate/signup-login/signup-login.html">Signup/Login</a></h2></span>
+                <!--<span tabindex="-1" id="menu-item"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>-->
+            </div>
+            <div class="user-header">
+                <h2 id="user-header">User Profile</h2>
+            </div>
+            <div class="content">
+                <div class="left-container">
+                    <div class="top">
+                        <div class="top-left">
+                            <div class="circle-cropper"></div>
+                        </div>
+                        <div class="top-right">
+                            <label class="user-name" id="text">Name</label>
+                            <input type="text" placeholder="Enter name" name="name" id="name-top-input" required>
+                            <label class="email" id="text">Email</label>
+                            <input type="email" placeholder="Enter email" name="email" id="email-top-input" required>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <label class="user-name" id="bottom-text">Phone Number</label>
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Enter Phone Number" name="phoneNumber" id="number-bottom-input">
+                        <label class="location" id="bottom-text">Location</label>
+                        <input type="text" placeholder="Enter Location" name="location" id="location-bottom-input">
+                        <label class="education" id="bottom-text">Education</label>
+                        <input type="text" placeholder="Enter Education     Ex. Spelman College" name="education" id="education-bottom-input">
+                        <label class="website" id="bottom-text">Website/Github</label>
+                        <input type="url" placeholder="Enter Website or Github URL" name="website" id="website-bottom-input">
+                    </div>
+                </div>
+                <div class="right-container">
+                    <label class="user-name" id="right-text">Affiliations</label>
+                    <input type="text" placeholder="Enter Orgianizations/Affiliations" name="Affiliations" id="affil-right-input" >
+                    <label class="website2" id="right-text">LinkedIn</label>
+                    <input type="url" placeholder="Enter LinkedIn link" name="LinkedIn" id="linkedin-input" >
+                    <label class="resume" id="right-text">Upload Resume</label>
+                    <input type="file" value="Upload File" name="name" id="resume-input" class="resume-input" >
+                    <div class="job-search">
+                        <input type="checkbox" placeholder="searching" name="searching" id="job-input" >
+                        <p1 id="looking-for-job">Currently looking for a job</p1>
+                    </div>
+                    <div class="enter">
+                        <input type="button" class="cancelButton" id="QuitButton" value="Quit" onclick="location.href='../../index.html';">
+                        <input type="button" class="signupButton" id="SaveButton" value="Save">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+
+    </body>
+    <script type="text/javascript">
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
+            authDomain: "glassceilingswe.firebaseapp.com",
+            databaseURL: "https://glassceilingswe.firebaseio.com",
+            projectId: "glassceilingswe",
+            storageBucket: "glassceilingswe.appspot.com",
+            messagingSenderId: "318857051230",
+            appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
+            measurementId: "G-LEHC8NNE1X"
+        };    
+        firebase.initializeApp(firebaseConfig);
+        //initalize the database for the user
+        var database = firebase.firestore();
+        // Name
+        const NameHeader = document.querySelector("#text");
+        const NameTextField = document.querySelector("#name-top-input");
+        // Email
+        const EmailHeader = document.querySelector("#text");
+        const EmailTextField = document.querySelector("#email-top-input");
+        // Phone Number
+        const NumberHeader = document.querySelector("#bottom-text");
+        const NumberTextField = document.querySelector("#number-bottom-input");
+        // Location
+        const LocationHeader = document.querySelector("#bottom-text");
+        const LocationTextField = document.querySelector("#location-bottom-input");
+        // Education
+        const EducationHeader = document.querySelector("#bottom-text");
+        const EducationTextField = document.querySelector("#education-bottom-input");
+        // Website/GitHub URL
+        const WebsiteHeader = document.querySelector("#bottom-text");
+        const WebsiteTextField = document.querySelector("#website-bottom-input");
+        // Affiliations
+        const AffilHeader = document.querySelector("#right-text");
+        const AffilTextField = document.querySelector("#affil-right-input");
+        // LinkedIn
+        const LinkedHeader = document.querySelector("#right-text");
+        const LinkedTextField = document.querySelector("#linkedin-input")
+        // JobSearch
+        const JobSearcButton = document.querySelector("#job-input");
+        const SaveButton = document.querySelector("#SaveButton");
+      //onClick of the save button add these fields to DB
+        SaveButton.addEventListener("click", function () {
+            //NametoSave  
+            const NameToSave = NameTextField.value;
+            // Email
+            const EmailToSave = EmailTextField.value;
+            // Phone Number
+            const NumberToSave = NumberTextField.value;
+            // Location
+            const LocationToSave = LocationTextField.value;
+            // Education
+            const EducationToSave = EducationTextField.value;
+            // Website/GitHub URL
+            const WebsiteToSave = WebsiteTextField.value;
+            // Affiliations 
+            const AffilToSave = AffilTextField.value;
+            // LinkedIn
+            const LinkedToSave = LinkedTextField.value;
+            // JobSearch
+            const JobSearchSave = JobSearcButton.value;
+            //resume
+            console.log("I am going to save data to Firestore")
+            
+            //create a collection and document reference for profiles
+            const docRef = database.collection("UserProfiles").doc(EmailToSave);
+        
+            docRef.set({
+                userName: NameToSave,
+                Email: EmailToSave,
+                PhoneNumber: NumberToSave,
+                Location: LocationToSave,
+                Education: EducationToSave,
+                Website_URL: WebsiteToSave,
+                Affiliations: AffilToSave,
+                LinkedIn_URL: LinkedToSave,
+                JobSearch: true
+
+            })
+                //create a collection and document reference for profiles
+            const docRef2 = database.collection("UserStatus").doc(EmailToSave)
+
+            docRef2.set({
+                userSatus: true,
+                
+            }).then(function(){
+                console.log("Info Saved");
+                alert("Information Sucessfully Saved!")
+                //navigate to the company landing page
+                top.location.href = "../../index1.html";
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+        })
+        
+        
+/*
+        //initalize the storage for the user
+        var storage = firebase.storage();
+        // Create a storage reference from firebase storage service
+        // with a child reference
+        var storageRef = storage.ref();
+        var imagesRef = storageRef.child('Resumes');
+        //resume
+        var file = document.getElementById("resume-input");
+        // Create the file metadata
+        var metadata = {
+            contentType: file.type
+        };
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        var uploadTask = imagesRef.child('Resumes/' + file.name).put(file, metadata);
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        function(snapshot) {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            switch (snapshot.state) {
+            case firebase.storage.TaskState.PAUSED: // or 'paused'
+                console.log('Upload is paused');
+                break;
+            case firebase.storage.TaskState.RUNNING: // or 'running'
+                console.log('Upload is running');
+                break;
+            }
+        }, function(error) {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/unauthorized':
+                // User doesn't have permission to access the object
+                break;
+                case 'storage/canceled':
+                // User canceled the upload
+                break;
+                case 'storage/unknown':
+                // Unknown error occurred, inspect error.serverResponse
+                break;
+            }
+        }, function() {
+            // Upload completed successfully, now we can get the download URL
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                console.log('File available at', downloadURL);
+                alert("Information Successfuly Saved!");
+            });
+        });  */
+    </script>    
+
+</html>
