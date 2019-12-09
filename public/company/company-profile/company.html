@@ -143,6 +143,13 @@ the company. Also contains JavaScript code to push the user input into Firebase-
                 CompanyDNI: DNIToSave,
                 Benefits: BenefitsToSave,
                 Fun_Facts: FactsToSave
+            })
+            
+            const docRef2 = database.collection("CompStatus").doc(EmailToSave)
+
+            docRef2.set({
+                CompStatus: true
+                
             }).then(function(){
                 console.log("Name Saved");
                 alert("Information Successfuly Saved!");

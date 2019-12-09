@@ -65,20 +65,12 @@
         //NametoSave  
         const EmailToSave = EmailTextField.value;
 
-        var docRef = database.collection("UserStatus").doc(EmailToSave).where("userStatus", "==", true);
-        /*docRef.get().then(function(doc) {
-            if (doc.exists) {
-                console.log("Document data:", doc.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-            }).catch(function(error) {
-                console.log("Error getting document:", error);
-            });*/
+        var docRef = database.collection("UserStatus");
+
+        var query = docRef.where("doc", "==", EmailToSave).where("userStatus", "==", true).get();
 
         //get the doc ref and see if it's falsexs
-        if (docRef) {
+        if (docRef.length == 0) {
           // [START signout]
 
             //set a variable for signed in to true
