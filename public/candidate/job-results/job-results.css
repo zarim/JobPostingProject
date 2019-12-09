@@ -155,7 +155,10 @@ html {
 }
 
 .circle-cropper {
-    background-color: white;
+    background-image: url(logo.png);
+    background-position: center;
+    background-size: cover;
+    /*background-color: white;*/
     width: 150px;
     height: 150px;
     position: relative;

@@ -16,8 +16,7 @@ the company. Also contains JavaScript code to push the user input into Firebase-
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../bias-training/bias.html">Unbiased Training</a></h2></span>
                 <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../blog/blog.html">Blog</a></h2></span>
-                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><img src="icon.png" alt="Profile Icon" width="40" height="50"></h2></span>
-            </div>
+                <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../signup-login/signup-login.html">Signup/Login</a></h2></span>            </div>
             <div class="company-header">
                 <h2 id="company-header">Company Profile</h2>
             </div>
@@ -145,7 +144,7 @@ the company. Also contains JavaScript code to push the user input into Firebase-
                 Fun_Facts: FactsToSave
             })
             
-            const docRef2 = database.collection("CompStatus").doc(EmailToSave)
+            const docRef2 = database.collection("CompStatus").doc(NameToSave)
 
             docRef2.set({
                 CompStatus: true

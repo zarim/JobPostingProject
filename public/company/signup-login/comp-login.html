@@ -83,8 +83,6 @@
       //onClick of the save button add these fields to DB
       LoginButton.addEventListener("click", function () {
 
-
-
       //create a collection and document reference for profiles
       const docRef = database.collection("CompStatus").doc(EmailToSave)
 
@@ -94,13 +92,7 @@
 
       database.collection("CompStatus").doc(EmailToSave).collection("compIDs").add({
               CompID: CompIDtoSave
-      })
-      /*const docRef2 = database.collection("CompStatus").document(EmailToSave).collection("compID").document("ID")
-
-      docRef2.set({
-        CompID: CompIDtoSave
-
-      })*/.then(function(){
+      }).then(function(){
           console.log("User Logged Out");
           alert("Successfully Logged Out")
           //navigate to the company landing page w/o login icon
@@ -144,7 +136,7 @@
       }
       console.log(error);
 
-  });
+      });
 
       //set a variable for signed in to true
       //onClick of the save button add these fields to DB
@@ -161,28 +153,19 @@
           CompStatus: true
 
       })
-
       database.collection("CompStatus").doc(EmailToSave).collection("compIDs").add({
               CompID: CompIDtoSave
-      })
-
-      /*const docRef2 = database.collection("CompStatus").document(EmailToSave).collection("compID").document("ID")
-
-      docRef2.set({
-        CompID: CompIDtoSave
-
-      })*/.then(function(){
+      }).then(function(){
           console.log("User Logged In");
           alert("Successfully Logged In")
           //navigate to the company landing page w/ login icon
           top.location.href = "../hiring-landing/landingLoggedIn.html";
       }).catch(function (error) {
           console.log("Got an error: ", error);
-      });
-  })
-
+        });
+      })
   }
-  }
+}
 
   </script>
   </htmL>
