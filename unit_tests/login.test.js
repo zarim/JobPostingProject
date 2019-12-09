@@ -1,13 +1,11 @@
-
-
 // this function provides a prototype for the test cases
-function candidate_login() {
+function signup() {
   // this allows an array of inputs for test cases  
   return Array.prototype.slice.call(arguments);
 }
 
 // describes the suite of test cases enumerated by the "it" functions
-describe('candidate_login()', function() {
+describe('signup()', function() {
   // tests is a list of test arguments
   // the cases in this list are described
   // in more detail in the unit test readme
@@ -17,16 +15,16 @@ describe('candidate_login()', function() {
     {args: ["jlangham@scmail.spelman.edu", "glass3"], expected: ["jlangham@scmail.spelman.edu", "glass3"]},
     {args: ["uegwim@scmail.spelman.edu", "glass4"], expected: ["uegwim@scmail.spelman.edu", "glass4"]},
     {args: ["mruff@scmail.spelman.edu", "glass5"], expected: ["mruff@scmail.spelman.edu", "glass5"]},
-    {args: ["leliawashere", "1998"], expected: ["leliawashere", "1998"]},
-    {args: ["zarirules", 2000], expected: ["zarirules", 2000]},
-    {args: ["somebodypleasestopjaida", 1998], expected: ["somebodypleasestopjaida", 1998]},
+    {args: ["leliawashere", "1998"], expected: ["not email", "weak password"]},
+    {args: ["zarirules", 2000], expected: ["not email", "weak password"]},
+    {args: ["somebodypleasestopjaida", 1998], expected: ["not email", "weak password"]},
   ];
 
   // this goes through each argument in the tests lists and 
   // tests whether the expected value matches the test argument
   tests.forEach(function(test) {
     it('correctly assigns args', function() {
-      var res = candidate_login.apply(null, test.args); // assigns res to test arguments
+      var res = signup.apply(null, test.args); // assigns res to test arguments
       assert.equal(res, test.expected); // returns true if matches, returns false otherwise
     });
   });
