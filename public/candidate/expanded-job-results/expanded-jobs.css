@@ -42,6 +42,18 @@ html {
     font-size: 20px;
 }
 
+.content-menu {
+    width: 100%;
+    margin: 1% auto;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: white;
+    font-weight: bolder;
+}
+
 .main-container {
     margin: 1% auto;
     padding: 1%;
@@ -64,6 +76,7 @@ html {
 }
 
 .bottom {
+    display: none;
     display: flex;
     min-height: fit-content;
     height: 575px;
@@ -74,9 +87,9 @@ html {
 }
 
 .results-side {
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
     height: 100%;
     width: 40%;
     float: left;
@@ -84,12 +97,19 @@ html {
 }
 
 .side-result {
+    padding: 3%;
+    display: flex;
+    flex-direction: row;
     border: 1px;
     border-style: solid;
     border-color: black;
-    height: 33.33%;
-    width: 100%;
-    background-color: aqua;
+    /* height: 33.33%; */
+    background-color: #00C9C9;
+    cursor: pointer;
+}
+
+.side-result:first-child {
+    display: none;
 }
 
 #card-header {
@@ -133,9 +153,9 @@ html {
 
 .right {
     float: right;
-    width: 55%;
     padding: 0 3%;
     margin: auto;
+    width: 55%;
 }
 
 .circle-cropper {
@@ -149,9 +169,69 @@ html {
 }
 
 .description-side {
+    display: flex;
+    flex-direction: column;
     background-color: bisque;
     height: 100%;
     width: 60%;
     float: right;
     margin: 1%;
+}
+
+#description-menu-item {
+    margin: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 47px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+#description-menu-item a {
+    text-decoration: none;
+    color: #00C9C9;
+}
+
+#description-menu-item a:active {
+    text-decoration: underline;
+    color: #00C9C9;
+}
+
+.description-menu {
+    width: 100%;
+    margin: 1% auto;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.description-image {
+    height: 30%;
+    background-color: lightcoral;
+}
+
+.description-text {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    background-color: brown;
+}
+
+.content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.containerTab {
+    display: none;
+    margin: 3%;
+    color: white;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
 }
