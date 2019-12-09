@@ -1,3 +1,5 @@
+
+// create instance of instantsearch
 var search = instantsearch({
   appId: '06N5B5F9IF',
   apiKey: 'a0deab13d94f6b03e80de5ae6270d577',
@@ -5,6 +7,7 @@ var search = instantsearch({
   routing:true
 });
 
+// add search box widget to search instance
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#q',
@@ -14,12 +17,14 @@ search.addWidget(
   })
 );
 
+// add stats widget to search instance
 search.addWidget(
     instantsearch.widgets.stats({
       container: '#stats'
     })
 );
-	
+
+// define hit template in search instance	
 var hitTemplate =
   '<article class="hit">' +
 	  '<div class="candidate-picture-wrapper">' +
@@ -32,18 +37,21 @@ var hitTemplate =
       '</div>' +
   '</article>';
 
+// define no results template in search instance
 var noResultsTemplate='<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
 
+// define checkbox capability for refinements
 var facetTemplateCheckbox =
   '<a href="javascript:void(0);" class="facet-item">' +
     '<input type="checkbox" class="{{cssClasses.checkbox}}" value="{{label}}" {{#isRefined}}checked{{/isRefined}} />{{label}}' +
     '<span class="facet-count">({{count}})</span>' +
   '</a>';
 
+// define colors for facetTemplate in search instance
 var facetTemplateColors =
   '<a href="javascript:void(0);" data-facet-value="{{label}}" class="facet-color {{#isRefined}}checked{{/isRefined}}"></a>';
 
-
+// add the hits widget for search instance
 search.addWidget(
   instantsearch.widgets.hits({
     container: '#hits',
@@ -55,7 +63,7 @@ search.addWidget(
   })
 );
 
-
+// add the pagination widget for search instance
 search.addWidget(
   instantsearch.widgets.pagination({
     container: '#pagination',
@@ -70,7 +78,7 @@ search.addWidget(
   })
 );
 
-
+// add refinement widget to search instance
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: '#skills',
@@ -84,7 +92,7 @@ search.addWidget(
 );
 
 
-
+// add refinement widget to search instance
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: '#location',
@@ -97,7 +105,7 @@ search.addWidget(
   })
 );
 
-
+// add refinement widget to search instance
 search.addWidget(
   instantsearch.widgets.clearAll({
     container: '#clear-all',
@@ -111,6 +119,6 @@ search.addWidget(
   })
 );
 
-search.start();
+search.start(); //start search
 
 
