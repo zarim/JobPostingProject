@@ -18,7 +18,7 @@ function populateJobs() {
     var theScriptHTML = document.getElementById("job-card").innerHTML;
     var theTemplate = Handlebars.compile(theScriptHTML);
 
-    const candidateSnapshot = db.collection("job-card").get();
+    const candidateSnapshot = db.collection("add-job-role").get();
     candidateSnapshot.then(function(snap) {
         snap.forEach(function(doc) {
             context = {"role" : doc.data().role, "company" : doc.data().company, "location" : doc.data().location};
@@ -32,4 +32,8 @@ function populateJobs() {
             console.log(compileData);
         });
     });
+}
+
+function navigate() {
+    top.location.href="../expanded-job-results/expanded-jobs.html";
 }

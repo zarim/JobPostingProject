@@ -11,9 +11,12 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="expanded-jobs.css">
     </head>
-    <body onload="populateJobs()">
+    <body onload="populateResults();">
+        <script>
+            getData();
+        </script>
         <div class="menu">
-            <h1 id="header"> <input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
+            <h1 id="header"><input type="button" class="header" onclick="location.href='../../index.html';" value="glass ceiling"/></h1>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../index.html">Home</a></h2></span>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../mission/mission.html">Mission</a></h2></span>
             <span tabindex="-1" id="menu-item"><h2 id="menu-item"><a href="../../salary-negotiations/salary.html">Salary Negotiation</a></h2></span>
@@ -33,8 +36,8 @@
                 -->
             </div>
             <div class="bottom">
-                <div class="results-side">
-                    <div class="side-result">
+                <div onclick="getId();" index="assignId();" id="results-side" class="results-side">
+                    <div class="side-result" id="side-result">
                         <div class="left">
                             <div class="circle-cropper"></div>
                         </div>
@@ -49,7 +52,39 @@
                     </div>
                 </div>
                 <div class="description-side">
-                    <div class="description"></div>
+                    <div class="description-image">
+                        <!--<div class="title" id="company1">{{company}}</div>-->
+                    </div>
+                    <div class="description-text">
+                        <div class="content-menu ">
+                            <span class="c" onclick="openTab('job'); fillDescription();" tabindex="-1" id="description-menu-item"><h2 id="description-menu-item" onclick="underLine(this.parentElement)">Job</h2></span>
+                            <span class="c" onclick="openTab('comp'); fillDescription();" tabindex="-1" id="description-menu-item"><h2 id="description-menu-item" onclick="underLine(this.parentElement)">Company</h2></span>
+                            <span class="c" onclick="openTab('salary'); fillDescription();" tabindex="-1" id="description-menu-item"><h2 id="description-menu-item" onclick="underLine(this.parentElement)">Salary</h2></span>
+                            <span class="c" onclick="openTab('diversity'); fillDescription();" tabindex="-1" id="description-menu-item"><h2 id="description-menu-item" onclick="underLine(this.parentElement)">D & I</h2></span>
+                            <span class="c" onclick="openTab('reviews'); fillDescription();" tabindex="-1" id="description-menu-item"><h2 id="description-menu-item" onclick="underLine(this.parentElement)">Reviews</h2></span>
+                            <span class="c" onclick="openTab('benefits'); fillDescription();" tabindex="-1" id="description-menu-item"><h2 id="description-menu-item" onclick="underLine(this.parentElement)">Benefits</h2></span>
+                        </div>
+                        <div class="content">
+                            <div id="job" class="containerTab">
+                                <div class="content-job" id="content-job">{{job}}</div>
+                            </div>
+                            <div id="comp" class="containerTab">
+                                <div class="content-company" id="content-company">{{comp}}</div>
+                            </div>
+                            <div id="salary" class="containerTab">
+                                <div class="content-salary" id="content-salary">{{salary}}</div>
+                            </div>
+                            <div id="diversity" class="containerTab">
+                                <div class="content-diversity" id="content-diversity">{{diversity}}</div>
+                            </div>
+                            <div id="reviews" class="containerTab">
+                                <div class="content-reviews" id="content-reviews"><img src="coming-soon.png"></div>
+                            </div>
+                            <div id="benefits" class="containerTab">
+                                <div class="content-benefits" id="content-benefits">{{benefits}}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
