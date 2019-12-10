@@ -1,3 +1,4 @@
+//given firebase config file
 const firebaseConfig = {
     apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
     authDomain: "glassceilingswe.firebaseapp.com",
@@ -8,11 +9,13 @@ const firebaseConfig = {
     appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
     measurementId: "G-LEHC8NNE1X"
 };
+//initialize the firebase app
 firebase.initializeApp(firebaseConfig);
 
+//set the db variable to the firestore database
 var db  = firebase.firestore();
 
-/* Functio to populate the candidates from data in the database */
+/* Function to populate the candidates from data in the database */
 function populateCandidates() {
      //initialize the variables for the context and compile data, 
     var context;
@@ -23,12 +26,12 @@ function populateCandidates() {
     var theTemplate = Handlebars.compile(theScriptHTML);
 
     //get a snapshot of the candidate-card database collection
-    const candidateSnapshot = db.collection("candidate-card").get();
+    const candidateSnapshot = db.collection("UserProfiles").get();
     //loop through each element in the collection
     candidateSnapshot.then(function(snap) {
         snap.forEach(function(doc) {
             //create a context by assigning the id names from the html to the value at each field in the database
-            context = {"name" : doc.data().name, "location" : doc.data().location, "skills" : doc.data().skills};
+            context = {"name" : doc.data().userName, "location" : doc.data().Location, "education" : doc.data().Education};
             //compile the context using the template
             compileData = theTemplate(context);
             //create a new div element
