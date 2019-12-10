@@ -1,3 +1,4 @@
+//firebase config file provided by firebase
 const firebaseConfig = {
     apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
     authDomain: "glassceilingswe.firebaseapp.com",
@@ -8,16 +9,22 @@ const firebaseConfig = {
     appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
     measurementId: "G-LEHC8NNE1X"
 };
+//initialize the firebase app using the config
 firebase.initializeApp(firebaseConfig);
 
+//set db variable to be the firestore database
 var db  = firebase.firestore();
 
+/* Function to get the first key from the database before the page completely loads */
 function getData() {
+    //take a snapshot of the database
     db.collection("add-job-role").onSnapshot(function(doc) {
+        //set a global key variable to the id of the first element in the doc
         window.key = doc.docs[0].id;
     });
 }
 
+/* Function to change the display and style of the block when each tab is clicked */
 function openTab(tabName) {
     var i, x;
     x = document.getElementsByClassName("containerTab");
@@ -28,6 +35,7 @@ function openTab(tabName) {
     window.ref = db.collection("add-job-role").doc(window.key);
 }
 
+/* Function to assign the key (unique id of each doc in the collection) */
 function assignKey(i, id) {
     x = document.getElementsByClassName("side-result");
     x[i].setAttribute('index', id);
@@ -35,6 +43,7 @@ function assignKey(i, id) {
     window.ref = db.collection("add-job-role").doc(window.key);
 }
 
+/* Function to return the assigned key */
 function getKey(i) {
     x = document.getElementsByClassName("side-result");
     return x[i].getAttribute('index');
