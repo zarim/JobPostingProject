@@ -1,3 +1,4 @@
+//given firebase config file
 const firebaseConfig = {
     apiKey: "AIzaSyBxsWriEmR_mauf_P9cycsofF2a1rU0i7g",
     authDomain: "glassceilingswe.firebaseapp.com",
@@ -8,8 +9,10 @@ const firebaseConfig = {
     appId: "1:318857051230:web:e8079bd12eb4d37a4dc8cf",
     measurementId: "G-LEHC8NNE1X"
 };
+//initialize the firebase app
 firebase.initializeApp(firebaseConfig);
 
+//set the db variable to the firestore database
 var db  = firebase.firestore();
 
 /* Function to get the first key from the database before the page completely loads */

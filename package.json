@@ -7,11 +7,19 @@
     "algoliasearch": "^3.35.1",
     "dotenv": "^8.2.0",
     "firebase": "^7.5.2",
-    "node": "^13.1.0"
+    "firebase-server": "^1.0.2",
+    "node": "^13.1.0",
+    "save-dev": "0.0.1-security"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "firebase-functions-test": "^0.1.7",
+    "mocha": "^6.2.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha unit_tests",
+    "mac-test": "MOCKFIREBASE_DB_URL = ws://localhost.firebaseio.test:5000 && mocha",
+    "win-test": "SETX MOCKFIREBASE_DB_URL   ws://localhost.firebaseio.test:5000 && mocha"
   },
   "repository": {
     "type": "git",
